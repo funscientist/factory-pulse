@@ -23,28 +23,26 @@ export function SlidePainPoints() {
     }
   ];
 
-  const getSeverityStyles = (severity: string) => {
+  const getSeverityBadge = (severity: string) => {
     switch (severity) {
       case "critical":
-        return "bg-destructive/10 border-destructive/30 text-destructive";
+        return <span className="badge badge-error">Critical</span>;
       case "high":
-        return "bg-amber-500/10 border-amber-500/30 text-amber-500";
+        return <span className="badge badge-warning">High</span>;
       default:
-        return "bg-primary/10 border-primary/30 text-primary";
+        return <span className="badge badge-info">Medium</span>;
     }
   };
 
   return (
-    <SlideLayout slideNumber={3} totalSlides={12} category="Problem">
+    <SlideLayout slideNumber={3} totalSlides={12} category="Problem" variant="gray">
       <div className="flex flex-col justify-center h-full min-h-[80vh]">
-        <div className="mb-8">
-          <span className="inline-block px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-medium mb-4 fade-in-up opacity-0">
-            Pain Points
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground fade-in-up stagger-1 opacity-0">
+        <div className="mb-10">
+          <span className="badge badge-error mb-4 fade-in-up">Pain Points</span>
+          <h2 className="text-h1 text-foreground fade-in-up stagger-1">
             현황과 Pain Point
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl fade-in-up stagger-2 opacity-0">
+          <p className="mt-3 text-body-lg text-muted-foreground max-w-xl fade-in-up stagger-2">
             현장 현실을 직시합니다
           </p>
         </div>
@@ -53,33 +51,28 @@ export function SlidePainPoints() {
           {painPoints.map((point, index) => (
             <div 
               key={index}
-              className={`flex items-start gap-5 p-6 rounded-xl bg-card border border-border fade-in-up stagger-${index + 3} opacity-0`}
+              className={`flex items-start gap-5 p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover transition-all duration-300 fade-in-up stagger-${index + 3}`}
             >
-              <div className={`p-3 rounded-lg ${getSeverityStyles(point.severity)}`}>
-                <point.icon className="w-6 h-6" />
+              <div className="p-3 rounded-xl bg-secondary">
+                <point.icon className="w-6 h-6 text-foreground" />
               </div>
               
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-lg font-semibold text-foreground">{point.title}</h3>
-                  {point.severity === "critical" && (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-destructive/10 text-destructive text-xs font-medium">
-                      <AlertTriangle className="w-3 h-3" />
-                      Critical
-                    </span>
-                  )}
+                  <h3 className="text-h4 text-foreground">{point.title}</h3>
+                  {getSeverityBadge(point.severity)}
                 </div>
-                <p className="text-muted-foreground leading-relaxed">{point.description}</p>
+                <p className="text-body text-muted-foreground leading-relaxed">{point.description}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Key constraint highlight */}
-        <div className="mt-8 p-4 rounded-lg border border-destructive/20 bg-destructive/5 max-w-4xl fade-in-up stagger-5 opacity-0">
+        <div className="mt-8 p-5 rounded-xl border-l-4 border-destructive bg-red-50 max-w-4xl fade-in-up stagger-5">
           <div className="flex items-center gap-3">
             <AlertTriangle className="w-5 h-5 text-destructive shrink-0" />
-            <p className="text-sm text-foreground">
+            <p className="text-body text-foreground">
               <span className="font-semibold">가장 큰 제약:</span> 원청 보안 정책으로 인한 오프라인(외부망 차단) 수집·처리 필수
             </p>
           </div>
