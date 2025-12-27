@@ -23,13 +23,13 @@ const slideTitles = [
 
 export function SlideOverview({ currentSlide, onNavigate, onClose }: SlideOverviewProps) {
   return (
-    <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl overflow-auto">
-      <div className="container mx-auto py-8 px-4">
+    <div className="fixed inset-0 z-50 bg-background/98 backdrop-blur-xl overflow-auto">
+      <div className="container-main py-8">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-foreground">슬라이드 개요</h2>
+          <h2 className="text-h2 text-foreground">슬라이드 개요</h2>
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-muted transition-colors"
+            className="p-2.5 rounded-full hover:bg-secondary transition-colors"
             aria-label="Close overview"
           >
             <X className="w-6 h-6 text-foreground" />
@@ -44,21 +44,21 @@ export function SlideOverview({ currentSlide, onNavigate, onClose }: SlideOvervi
                 onNavigate(slide.number);
                 onClose();
               }}
-              className={`group p-4 rounded-xl border transition-all text-left ${
+              className={`group p-5 rounded-2xl border-2 transition-all text-left hover:-translate-y-1 ${
                 currentSlide === slide.number
-                  ? "bg-primary/10 border-primary"
-                  : "bg-card border-border hover:border-primary/30"
+                  ? "bg-primary/5 border-primary shadow-primary"
+                  : "bg-card border-border hover:border-primary/30 shadow-card"
               }`}
             >
               <div className="flex items-start gap-3">
-                <span className={`text-2xl font-bold ${
-                  currentSlide === slide.number ? "text-primary" : "text-muted-foreground"
+                <span className={`text-h2 font-bold ${
+                  currentSlide === slide.number ? "text-primary" : "text-border"
                 }`}>
                   {String(slide.number).padStart(2, '0')}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-foreground truncate">{slide.title}</p>
-                  <p className="text-xs text-muted-foreground truncate">{slide.subtitle}</p>
+                  <p className="text-h4 text-foreground truncate">{slide.title}</p>
+                  <p className="text-tiny text-muted-foreground truncate">{slide.subtitle}</p>
                 </div>
               </div>
             </button>
