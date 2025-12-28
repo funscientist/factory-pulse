@@ -35,36 +35,36 @@ export function SlideCustomerGoals() {
 
   return (
     <SlideLayout slideNumber={2} totalSlides={12} category="Executive Summary">
-      <div className="flex flex-col justify-center h-full min-h-[80vh]">
-        <div className="mb-10">
-          <span className="badge badge-info mb-4 fade-in-up">Customer Objectives</span>
-          <h2 className="text-h1 text-foreground fade-in-up stagger-1">
+      <div className="flex flex-col justify-center h-full">
+        <div className="mb-4">
+          <span className="badge badge-info mb-2 fade-in-up text-xs">Customer Objectives</span>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground fade-in-up stagger-1">
             고객이 원하는 것
           </h2>
-          <p className="mt-3 text-body-lg text-muted-foreground max-w-xl fade-in-up stagger-2">
+          <p className="mt-1 text-sm text-muted-foreground max-w-xl fade-in-up stagger-2">
             혹시 이런 문제들을 겪고 계신가요?
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
+        <div className="grid grid-cols-2 gap-4 max-w-5xl">
           {goals.map((goal, index) => (
             <div 
               key={index}
-              className={`group card-base fade-in-up stagger-${index + 3}`}
+              className={`group p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="flex items-start gap-4">
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${goal.color} shadow-lg`}>
-                  <goal.icon className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-3">
+                <div className={`p-2 rounded-lg bg-gradient-to-br ${goal.color} shadow-lg shrink-0`}>
+                  <goal.icon className="w-4 h-4 text-white" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-h4 text-foreground mb-2">{goal.title}</h3>
-                  <p className="text-small text-muted-foreground leading-relaxed">{goal.description}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-semibold text-foreground mb-1">{goal.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{goal.description}</p>
                 </div>
               </div>
               
-              <div className="mt-5 pt-4 border-t border-border">
-                <span className="inline-flex items-center gap-1.5 text-small font-semibold text-primary">
-                  <Target className="w-4 h-4" />
+              <div className="mt-3 pt-2 border-t border-border">
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                  <Target className="w-3 h-3" />
                   {goal.metric}
                 </span>
               </div>
