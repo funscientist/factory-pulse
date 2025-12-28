@@ -41,7 +41,7 @@ export function SlideLayout({
           {/* Header */}
           <header className="flex items-center justify-between px-8 py-4">
             <div className="flex items-center gap-3">
-              <span className={`font-bold text-lg tracking-tight ${variant === "hero" || variant === "cta" ? "text-white" : "text-primary"}`}>PolarPulsex</span>
+              <span className={`font-bold text-lg tracking-tight ${variant === "hero" || variant === "cta" ? "text-white" : "text-primary"}`}>PolarPulse X Baron Tech</span>
               {category && <>
                   <span className={getTextClass()}>/</span>
                   <span className={`text-xs ${getTextClass()}`}>{category}</span>
