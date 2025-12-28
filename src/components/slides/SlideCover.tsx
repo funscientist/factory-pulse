@@ -15,9 +15,9 @@ export function SlideCover() {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-display font-bold leading-tight mb-6 fade-in-up stagger-1">
-            오프라인(망분리) 제조 현장에서,
+            Secure AI Ops
             <br />
-            <span className="text-white/90">품질·생산성·원가 의사결정</span>을 한 번에
+            <span className="text-white/90">제조 특화 프로세스 최적화 솔루션</span>
           </h1>
           
           <p className="text-lg md:text-body-lg text-white/80 mb-10 max-w-2xl fade-in-up stagger-2">
