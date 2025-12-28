@@ -36,43 +36,43 @@ export function SlidePainPoints() {
 
   return (
     <SlideLayout slideNumber={3} totalSlides={12} category="Problem" variant="gray">
-      <div className="flex flex-col justify-center h-full min-h-[80vh]">
-        <div className="mb-10">
-          <span className="badge badge-error mb-4 fade-in-up">Pain Points</span>
-          <h2 className="text-h1 text-foreground fade-in-up stagger-1">
+      <div className="flex flex-col justify-center h-full">
+        <div className="mb-4">
+          <span className="badge badge-error mb-2 fade-in-up text-xs">Pain Points</span>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground fade-in-up stagger-1">
             현황과 Pain Point
           </h2>
-          <p className="mt-3 text-body-lg text-muted-foreground max-w-xl fade-in-up stagger-2">
+          <p className="mt-1 text-sm text-muted-foreground max-w-xl fade-in-up stagger-2">
             현장 현실을 직시합니다
           </p>
         </div>
 
-        <div className="space-y-4 max-w-4xl">
+        <div className="space-y-3 max-w-4xl">
           {painPoints.map((point, index) => (
             <div 
               key={index}
-              className={`flex items-start gap-5 p-6 rounded-2xl bg-card shadow-card hover:shadow-card-hover transition-all duration-300 fade-in-up stagger-${index + 3}`}
+              className={`flex items-start gap-3 p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="p-3 rounded-xl bg-secondary">
-                <point.icon className="w-6 h-6 text-foreground" />
+              <div className="p-2 rounded-lg bg-secondary shrink-0">
+                <point.icon className="w-4 h-4 text-foreground" />
               </div>
               
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-h4 text-foreground">{point.title}</h3>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-sm font-semibold text-foreground">{point.title}</h3>
                   {getSeverityBadge(point.severity)}
                 </div>
-                <p className="text-body text-muted-foreground leading-relaxed">{point.description}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{point.description}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Key constraint highlight */}
-        <div className="mt-8 p-5 rounded-xl border-l-4 border-destructive bg-red-50 max-w-4xl fade-in-up stagger-5">
-          <div className="flex items-center gap-3">
-            <AlertTriangle className="w-5 h-5 text-destructive shrink-0" />
-            <p className="text-body text-foreground">
+        <div className="mt-4 p-3 rounded-lg border-l-4 border-destructive bg-red-50 max-w-4xl fade-in-up stagger-5">
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="w-4 h-4 text-destructive shrink-0" />
+            <p className="text-xs text-foreground">
               <span className="font-semibold">가장 큰 제약:</span> 원청 보안 정책으로 인한 오프라인(외부망 차단) 수집·처리 필수
             </p>
           </div>

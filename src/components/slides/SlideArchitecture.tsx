@@ -27,44 +27,44 @@ export function SlideArchitecture() {
 
   return (
     <SlideLayout slideNumber={10} totalSlides={12} category="Architecture">
-      <div className="flex flex-col justify-center h-full min-h-[80vh]">
-        <div className="mb-10">
-          <span className="badge badge-info mb-4 fade-in-up">Architecture Options</span>
-          <h2 className="text-h1 text-foreground fade-in-up stagger-1">
+      <div className="flex flex-col justify-center h-full">
+        <div className="mb-3">
+          <span className="badge badge-info mb-2 fade-in-up text-xs">Architecture Options</span>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground fade-in-up stagger-1">
             아키텍처 선택지
           </h2>
-          <p className="mt-3 text-body-lg text-muted-foreground max-w-xl fade-in-up stagger-2">
+          <p className="mt-1 text-sm text-muted-foreground max-w-xl fade-in-up stagger-2">
             오프라인 제약을 충족하는 2가지 배포 옵션
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl">
+        <div className="grid grid-cols-2 gap-4 max-w-6xl">
           {options.map((option, index) => (
             <div 
               key={index}
-              className={`card-base fade-in-up stagger-${index + 3}`}
+              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="flex items-center gap-4 mb-5">
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${option.color}`}>
-                  <option.icon className="w-6 h-6 text-white" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`p-2 rounded-lg bg-gradient-to-br ${option.color}`}>
+                  <option.icon className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-h3 text-foreground">{option.title}</h3>
-                  <p className="text-small text-muted-foreground">{option.subtitle}</p>
+                  <h3 className="text-sm font-semibold text-foreground">{option.title}</h3>
+                  <p className="text-[10px] text-muted-foreground">{option.subtitle}</p>
                 </div>
               </div>
 
-              <p className="text-body text-foreground mb-5 p-4 rounded-xl bg-secondary">
+              <p className="text-xs text-foreground mb-3 p-2 rounded-lg bg-secondary">
                 {option.config}
               </p>
 
-              <div className="space-y-5 mb-5">
+              <div className="grid grid-cols-2 gap-3 mb-3">
                 <div>
-                  <p className="text-tiny text-muted-foreground mb-2 font-medium">장점</p>
-                  <ul className="space-y-2">
+                  <p className="text-[10px] text-muted-foreground mb-1 font-medium">장점</p>
+                  <ul className="space-y-1">
                     {option.pros.map((pro, i) => (
-                      <li key={i} className="flex items-center gap-2 text-body text-foreground">
-                        <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
+                      <li key={i} className="flex items-center gap-1.5 text-[11px] text-foreground">
+                        <CheckCircle2 className="w-3 h-3 text-success shrink-0" />
                         {pro}
                       </li>
                     ))}
@@ -72,11 +72,11 @@ export function SlideArchitecture() {
                 </div>
 
                 <div>
-                  <p className="text-tiny text-muted-foreground mb-2 font-medium">단점</p>
-                  <ul className="space-y-2">
+                  <p className="text-[10px] text-muted-foreground mb-1 font-medium">단점</p>
+                  <ul className="space-y-1">
                     {option.cons.map((con, i) => (
-                      <li key={i} className="flex items-center gap-2 text-body text-foreground">
-                        <XCircle className="w-4 h-4 text-destructive shrink-0" />
+                      <li key={i} className="flex items-center gap-1.5 text-[11px] text-foreground">
+                        <XCircle className="w-3 h-3 text-destructive shrink-0" />
                         {con}
                       </li>
                     ))}
@@ -84,9 +84,9 @@ export function SlideArchitecture() {
                 </div>
               </div>
 
-              <div className="pt-5 border-t border-border">
-                <p className="text-small text-muted-foreground">
-                  <span className="text-primary font-semibold">권장 상황:</span> {option.recommended}
+              <div className="pt-2 border-t border-border">
+                <p className="text-[11px] text-muted-foreground">
+                  <span className="text-primary font-semibold">권장:</span> {option.recommended}
                 </p>
               </div>
             </div>
@@ -94,12 +94,12 @@ export function SlideArchitecture() {
         </div>
 
         {/* Security note */}
-        <div className="mt-8 p-5 rounded-xl border-l-4 border-primary bg-blue-50 max-w-6xl fade-in-up stagger-5">
-          <div className="flex items-start gap-3">
-            <Shield className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-            <p className="text-body text-muted-foreground">
+        <div className="mt-4 p-3 rounded-lg border-l-4 border-primary bg-blue-50 max-w-6xl fade-in-up stagger-5">
+          <div className="flex items-start gap-2">
+            <Shield className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+            <p className="text-xs text-muted-foreground">
               OT 환경 보안은 <span className="text-foreground font-semibold">네트워크 분리/세그멘테이션</span> 등 
-              아키텍처 기반 통제가 핵심 권고사항입니다. — NIST Publications
+              아키텍처 기반 통제가 핵심입니다. — NIST
             </p>
           </div>
         </div>
