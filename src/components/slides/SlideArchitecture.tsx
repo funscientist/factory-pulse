@@ -1,107 +1,80 @@
 import { SlideLayout } from "./SlideLayout";
-import { Server, Cloud, CheckCircle2, XCircle, Shield } from "lucide-react";
+import { Database, Brain, LayoutDashboard, FileText, Shield } from "lucide-react";
 
 export function SlideArchitecture() {
-  const options = [
+  const deliverables = [
     {
-      title: "옵션 1: 완전 오프라인",
-      subtitle: "On-Prem",
-      icon: Server,
-      config: "DB + 분석(LLM) 서버 모두 내부 구축",
-      pros: ["최고 수준 보안 (외부망 차단)", "데이터 외부 유출 원천 차단"],
-      cons: ["성능/정확도 한계 가능", "원격 지원 어려움"],
-      recommended: "원청 정책이 '완전 차단'일 때",
+      icon: Database,
+      title: "Offline Data Hub",
+      items: ["수집 커넥터", "표준 스키마", "정제 파이프라인"],
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "옵션 2: 하이브리드",
-      subtitle: "Semi-Online",
-      icon: Cloud,
-      config: "DB는 내부, 분석은 클라우드 수행 (승인 필요)",
-      pros: ["성능/확장성 우수", "원격 유지보수/보정 용이"],
-      cons: ["보안 승인 필요", "고객 우려 관리 필요"],
-      recommended: "정책상 '제한적 연계'가 가능할 때",
+      icon: Brain,
+      title: "Insight Pack",
+      items: ["불량/병목/셋업 개선 인사이트", "템플릿(설명 가능 형태)"],
       color: "from-violet-500 to-purple-500"
+    },
+    {
+      icon: LayoutDashboard,
+      title: "Dual Dashboard",
+      items: ["경영진 KPI 대시보드", "현장 KPI 대시보드"],
+      color: "from-emerald-500 to-green-500"
+    },
+    {
+      icon: FileText,
+      title: "Ops Playbook",
+      items: ["경보 발생 시 원인 후보", "우선 조치/검증 절차", "운영 프로세스 포함"],
+      color: "from-amber-500 to-orange-500"
+    },
+    {
+      icon: Shield,
+      title: "Audit Log",
+      items: ["전송/분석/질의 이력", "보안/승인 대응용"],
+      color: "from-slate-500 to-gray-600"
     }
   ];
 
   return (
-    <SlideLayout slideNumber={10} totalSlides={12} category="Architecture">
+    <SlideLayout slideNumber={10} totalSlides={12} category="Deliverables">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
-          <span className="badge badge-info mb-3 fade-in-up">Architecture Options</span>
+          <span className="badge badge-success mb-3 fade-in-up">Deliverables</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            아키텍처 선택지
+            고객이 받는 산출물
           </h2>
-          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            오프라인 제약을 충족하는 2가지 배포 옵션
+          <p className="mt-2 text-base text-muted-foreground fade-in-up stagger-2">
+            "구축물" 중심의 실제 인도 항목
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 max-w-6xl">
-          {options.map((option, index) => (
+        <div className="grid grid-cols-5 gap-4 max-w-6xl">
+          {deliverables.map((item, index) => (
             <div 
               key={index}
-              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="flex items-center gap-4 mb-4">
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${option.color}`}>
-                  <option.icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">{option.title}</h3>
-                  <p className="text-sm text-muted-foreground">{option.subtitle}</p>
-                </div>
+              <div className={`p-2.5 rounded-xl bg-gradient-to-br ${item.color} w-fit mb-3`}>
+                <item.icon className="w-5 h-5 text-white" />
               </div>
-
-              <p className="text-sm text-foreground mb-4 p-3 rounded-xl bg-secondary">
-                {option.config}
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div>
-                  <p className="text-xs text-muted-foreground mb-2 font-semibold">장점</p>
-                  <ul className="space-y-2">
-                    {option.pros.map((pro, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-foreground">
-                        <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
-                        {pro}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <p className="text-xs text-muted-foreground mb-2 font-semibold">단점</p>
-                  <ul className="space-y-2">
-                    {option.cons.map((con, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-foreground">
-                        <XCircle className="w-4 h-4 text-destructive shrink-0" />
-                        {con}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-border">
-                <p className="text-sm text-muted-foreground">
-                  <span className="text-primary font-semibold">권장:</span> {option.recommended}
-                </p>
-              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-2">{item.title}</h3>
+              <ul className="space-y-1">
+                {item.items.map((subItem, i) => (
+                  <li key={i} className="text-[11px] text-muted-foreground flex items-start gap-1.5">
+                    <span className="w-1 h-1 rounded-full bg-primary mt-1.5 shrink-0" />
+                    {subItem}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
 
-        {/* Security note */}
-        <div className="mt-5 p-4 rounded-xl border-l-4 border-primary bg-blue-50 max-w-6xl fade-in-up stagger-5">
-          <div className="flex items-start gap-3">
-            <Shield className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-            <p className="text-sm text-muted-foreground">
-              OT 환경 보안은 <span className="text-foreground font-semibold">네트워크 분리/세그멘테이션</span> 등 
-              아키텍처 기반 통제가 핵심입니다. — NIST
-            </p>
-          </div>
+        {/* Summary */}
+        <div className="mt-6 p-5 rounded-xl hero-gradient max-w-6xl fade-in-up stagger-5">
+          <p className="text-base text-white font-medium text-center">
+            단순 분석 리포트가 아닌, <span className="font-bold">운영 가능한 시스템과 프로세스</span>를 인도합니다.
+          </p>
         </div>
       </div>
     </SlideLayout>

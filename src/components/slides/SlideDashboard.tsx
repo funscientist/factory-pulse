@@ -1,94 +1,74 @@
 import { SlideLayout } from "./SlideLayout";
-import { Users, Factory, AlertTriangle, TrendingUp, Gauge, DollarSign, Settings, BarChart3 } from "lucide-react";
+import { AlertTriangle, Search, Settings, Gauge, Users, DollarSign } from "lucide-react";
 
 export function SlideDashboard() {
-  const executiveFeatures = [
-    { icon: AlertTriangle, text: "품질 리스크 조기경보 (중간 공정 기반)" },
-    { icon: TrendingUp, text: "생산성/납기 영향 요인 Top5" },
-    { icon: DollarSign, text: "(옵션) 품질/가동률 변동의 원가·손익 영향" }
-  ];
-
-  const opsFeatures = [
-    { icon: Gauge, text: "설비별 이상징후/불량률/레시피 편차" },
-    { icon: BarChart3, text: "LOT/공정별 원인 Drill-down" },
-    { icon: Settings, text: "개선안 실행 후 Before/After 추적" }
+  const useCases = [
+    {
+      icon: AlertTriangle,
+      title: "중간 공정 품질 조기 경보",
+      description: "완성품 검수 전 이상 징후 탐지",
+      color: "from-red-500 to-pink-500"
+    },
+    {
+      icon: Search,
+      title: "불량 원인 후보 자동 랭킹",
+      description: "설비/레시피/유틸리티/공정 조건 상관 분석",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: Settings,
+      title: "다품종 셋업 최적화",
+      description: "유사 조건 검색 + 최적 세팅 추천 (레시피/조건 편차 관리)",
+      color: "from-violet-500 to-purple-500"
+    },
+    {
+      icon: Gauge,
+      title: "공정 병목/비효율 탐지",
+      description: "셋업 타임, 대기, 재작업 패턴 기반 개선 포인트 제시",
+      color: "from-emerald-500 to-green-500"
+    },
+    {
+      icon: Users,
+      title: "C-Level 대시보드",
+      description: "품질 리스크·생산성·납기 영향 요인 Top-N + 실행 결과 추적",
+      color: "from-amber-500 to-orange-500"
+    },
+    {
+      icon: DollarSign,
+      title: "(옵션) Cost-to-Operate 연결",
+      description: "불량/다운타임이 비용·마진에 미치는 영향까지 확장",
+      color: "from-slate-500 to-gray-500"
+    }
   ];
 
   return (
-    <SlideLayout slideNumber={9} totalSlides={12} category="Product" variant="gray">
+    <SlideLayout slideNumber={9} totalSlides={12} category="Use Cases" variant="gray">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-6">
-          <span className="badge badge-info mb-3 fade-in-up">Layer 3: Visualization</span>
+        <div className="mb-5">
+          <span className="badge badge-info mb-3 fade-in-up">Core Use Cases</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            Dual Dashboard
+            핵심 Use Case
           </h2>
-          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            경영진용 vs 현장용을 분리하여 각 사용자에 최적화된 뷰 제공
+          <p className="mt-2 text-base text-muted-foreground fade-in-up stagger-2">
+            제조 특화 AIOps 적용 영역
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 max-w-6xl">
-          {/* Executive Dashboard */}
-          <div className="fade-in-up stagger-3">
-            <div className="p-6 rounded-xl bg-card shadow-card h-full">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">경영진용</h3>
-                  <p className="text-sm text-muted-foreground">Executive Dashboard</p>
+        <div className="grid grid-cols-3 gap-4 max-w-6xl">
+          {useCases.map((useCase, index) => (
+            <div 
+              key={index}
+              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`p-2.5 rounded-xl bg-gradient-to-br ${useCase.color}`}>
+                  <useCase.icon className="w-5 h-5 text-white" />
                 </div>
               </div>
-              
-              <div className="space-y-3">
-                {executiveFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 rounded-xl bg-secondary">
-                    <feature.icon className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <p className="text-sm text-foreground">{feature.text}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-border">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm text-muted-foreground">의사결정 지원 최적화</span>
-                </div>
-              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-2">{useCase.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{useCase.description}</p>
             </div>
-          </div>
-
-          {/* Ops Dashboard */}
-          <div className="fade-in-up stagger-4">
-            <div className="p-6 rounded-xl bg-card shadow-card h-full">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-green-500">
-                  <Factory className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">현장용</h3>
-                  <p className="text-sm text-muted-foreground">Ops/KPI Dashboard</p>
-                </div>
-              </div>
-              
-              <div className="space-y-3">
-                {opsFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3 p-3 rounded-xl bg-secondary">
-                    <feature.icon className="w-5 h-5 text-success shrink-0 mt-0.5" />
-                    <p className="text-sm text-foreground">{feature.text}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-border">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-success animate-pulse" />
-                  <span className="text-sm text-muted-foreground">실시간 모니터링 및 액션</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </SlideLayout>

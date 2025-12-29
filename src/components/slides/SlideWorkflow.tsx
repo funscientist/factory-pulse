@@ -7,28 +7,28 @@ export function SlideWorkflow() {
       step: "01",
       icon: FileText,
       title: "요구사항 추출",
-      description: "주문/요청 이메일·문서에서 핵심 요구사항 자동 추출",
+      description: "주문 요청(이메일/문서)에서 핵심 요구사항 1차 구조화",
       color: "from-blue-500 to-cyan-500"
     },
     {
       step: "02",
       icon: Database,
       title: "데이터 수집·가공",
-      description: "오프라인에서 설비/품질/유틸리티 데이터 수집 → 분석용 형태로 정제",
+      description: "오프라인 구역에서 설비/품질/유틸리티 데이터 수집 → 분석용 정제/표준화",
       color: "from-violet-500 to-purple-500"
     },
     {
       step: "03",
       icon: Brain,
-      title: "LLM 분석",
-      description: "불량 원인/공정 병목/비효율/세팅 개선안 도출",
+      title: "LLM/AI 분석",
+      description: "불량 원인 후보, 공정 비효율/병목, 세팅 최적화 인사이트 도출",
       color: "from-emerald-500 to-green-500"
     },
     {
       step: "04",
       icon: LayoutDashboard,
-      title: "대시보드 제공",
-      description: "경영진 + 현장 맞춤 대시보드",
+      title: "Dual Dashboard",
+      description: "경영진 의사결정 대시보드 + 현장 KPI 대시보드(Drill-down)",
       color: "from-amber-500 to-orange-500"
     }
   ];
@@ -39,8 +39,11 @@ export function SlideWorkflow() {
         <div className="mb-5">
           <span className="badge badge-info mb-3 fade-in-up">End-to-End Workflow</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            4단계 자동화 흐름
+            End-to-End Workflow
           </h2>
+          <p className="mt-2 text-base text-muted-foreground fade-in-up stagger-2">
+            회의록 워크플로 기반 4단계 자동화
+          </p>
         </div>
 
         <div className="grid grid-cols-2 gap-8 max-w-6xl">
@@ -89,15 +92,11 @@ export function SlideWorkflow() {
               <ul className="space-y-2 text-sm text-muted-foreground ml-10">
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  리스크·생산성·품질 의사결정 지원
+                  품질 리스크·생산성·납기 영향 요인 Top-N
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  KPI 트렌드 및 예측
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  원가 영향 분석 (옵션)
+                  실행 결과 추적
                 </li>
               </ul>
             </div>
@@ -109,7 +108,7 @@ export function SlideWorkflow() {
                 </div>
                 <div>
                   <p className="text-base font-semibold text-foreground">현장 Dashboard</p>
-                  <p className="text-xs text-muted-foreground">Operational KPIs</p>
+                  <p className="text-xs text-muted-foreground">Operational KPIs + Drill-down</p>
                 </div>
               </div>
               <ul className="space-y-2 text-sm text-muted-foreground ml-10">
@@ -119,11 +118,7 @@ export function SlideWorkflow() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                  실시간 이상 감지
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                  개선안 실행 추적
+                  실시간 이상 감지 및 Drill-down
                 </li>
               </ul>
             </div>
