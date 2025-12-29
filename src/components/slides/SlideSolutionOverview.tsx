@@ -23,10 +23,8 @@ export function SlideSolutionOverview() {
   return <SlideLayout slideNumber={5} totalSlides={12} category="Solution" variant="gray">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-6">
-          <span className="badge badge-info mb-3 fade-in-up">운영 데이터(로그/이벤트)를 AI로 상관·이상탐지·원인추정해 운영 프로세스를 자동화</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            Polarpulse 제안 개요
-          </h2>
+          <span className="badge badge-info mb-3 fade-in-up">Solution</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">Polarpulse 제안</h2>
           <p className="mt-2 text-lg text-primary font-semibold fade-in-up stagger-2">
             "Factory Intelligence + Executive Dashboard"
           </p>
@@ -61,7 +59,7 @@ export function SlideSolutionOverview() {
               <DollarSign className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="text-xs text-muted-foreground">(옵션)</span>
+              
               <p className="text-sm text-foreground font-medium">원가/재무 데이터 연계로 "공정 → 손익" 추적</p>
             </div>
           </div>
