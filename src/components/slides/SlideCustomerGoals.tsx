@@ -31,7 +31,7 @@ export function SlideCustomerGoals() {
         <div className="mb-6">
           <span className="badge badge-info mb-3 fade-in-up">Customer Objectives</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">주요 해결 과제 및 목표</h2>
-          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">현장의 데이터를 경영의 가치로 바꿉니</p>
+          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">현장의 데이터를 경영의 가치로 바꿉니다</p>
         </div>
 
         <div className="grid grid-cols-2 gap-6 max-w-6xl">
