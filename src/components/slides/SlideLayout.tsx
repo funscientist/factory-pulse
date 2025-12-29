@@ -48,9 +48,7 @@ export function SlideLayout({
                 </>}
             </div>
             <div className="flex items-center gap-3">
-              <span className={`text-xs font-medium ${getTextClass()}`}>
-                {String(slideNumber).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
-              </span>
+              
             </div>
           </header>
 
