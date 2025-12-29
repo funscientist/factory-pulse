@@ -1,68 +1,69 @@
 import { SlideLayout } from "./SlideLayout";
-import { Brain, Search, TrendingUp, Settings2, Shield, CheckCircle2 } from "lucide-react";
+import { Shield, Server, Key, FileCheck, CheckCircle2 } from "lucide-react";
 
 export function SlideLLMEngine() {
-  const features = [
+  const securityPrinciples = [
     {
-      icon: Search,
-      title: "불량 원인 자동 랭킹",
-      description: "공정/설비/레시피/유틸 조건과의 상관관계 분석",
-      color: "from-blue-500 to-cyan-500"
+      icon: Server,
+      title: "원천 데이터 사내 고정",
+      description: "로그/측정값은 절대 외부로 나가지 않음"
     },
     {
-      icon: TrendingUp,
-      title: "공정 비효율/병목 탐지",
-      description: "셋업 타임, 대기, 재작업 패턴 식별",
-      color: "from-violet-500 to-purple-500"
+      icon: FileCheck,
+      title: "피처/집계/마스킹 데이터만 전송",
+      description: "정책 기반으로 가공된 데이터만 클라우드로"
     },
     {
-      icon: Settings2,
-      title: "최적 셋업 추천",
-      description: "다품종 소량 생산용 '유사 조건 검색 + 최적 셋업'",
-      color: "from-emerald-500 to-green-500"
+      icon: Key,
+      title: "허용 목록 + 감사 로그 + 키관리",
+      description: "고객 관리 키 옵션 제공"
     }
   ];
 
-  const strategies = [
-    "통계/규칙 기반 분석으로 빠른 시작",
-    "검색(RAG) 기반 유사 사례 매칭",
-    "경량 모델 조합으로 정확도 확보",
-    "데이터 축적에 따른 모델 고도화"
+  const references = [
+    {
+      source: "NIST Publications",
+      content: "ICS/OT 환경은 성능·가용성·안전 요구가 높아 네트워크 분리/세그멘테이션 중심 아키텍처 권고"
+    },
+    {
+      source: "Microsoft Azure",
+      content: "하이브리드 구성에서는 데이터 레지던시/소버린 요구(저장 위치/접근 통제/암호화/키관리)가 중요"
+    }
   ];
 
   return (
-    <SlideLayout slideNumber={8} totalSlides={12} category="Product">
+    <SlideLayout slideNumber={8} totalSlides={12} category="Security">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
-          <span className="badge badge-info mb-3 fade-in-up">Layer 2: AI Analytics</span>
+          <span className="badge badge-warning mb-3 fade-in-up">Security & Compliance</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            LLM Insight Engine
+            보안/승인 포인트
           </h2>
           <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            오프라인 제약을 전제로 "정확도 확보 방식"을 설계합니다
+            OT 환경에서의 하이브리드 운영 원칙
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-8 max-w-6xl">
-          {/* Analysis features */}
-          <div>
-            <h3 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2 fade-in-up stagger-3">
-              <Brain className="w-5 h-5 text-primary" />
-              분석 기능
+          {/* Left: Security principles */}
+          <div className="fade-in-up stagger-3">
+            <h3 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
+              <Shield className="w-5 h-5 text-primary" />
+              Polarpulse 보안 설계
             </h3>
             <div className="space-y-3">
-              {features.map((feature, index) => (
+              {securityPrinciples.map((principle, index) => (
                 <div 
                   key={index}
-                  className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 4}`}
+                  className="p-4 rounded-xl bg-card shadow-card"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`p-2.5 rounded-xl bg-gradient-to-br ${feature.color} shrink-0`}>
-                      <feature.icon className="w-5 h-5 text-white" />
+                    <div className="p-2.5 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 shrink-0">
+                      <principle.icon className="w-5 h-5 text-white" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-sm font-semibold text-foreground mb-1">{feature.title}</h4>
-                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                      <h4 className="text-sm font-semibold text-foreground mb-1">{principle.title}</h4>
+                      <p className="text-sm text-muted-foreground">{principle.description}</p>
                     </div>
                   </div>
                 </div>
@@ -70,30 +71,36 @@ export function SlideLLMEngine() {
             </div>
           </div>
 
-          {/* Offline accuracy strategy */}
-          <div className="fade-in-up stagger-5">
-            <h3 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-              <Shield className="w-5 h-5 text-primary" />
-              오프라인 정확도 확보 전략
-            </h3>
-            <div className="p-5 rounded-xl bg-card shadow-card">
-              <p className="text-sm text-muted-foreground mb-4">
-                초기에는 대규모 학습 의존을 줄이고, 다음 조합으로 "식별 가능" 영역부터 확장:
-              </p>
-              <ul className="space-y-3">
-                {strategies.map((strategy, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm text-foreground">
-                    <CheckCircle2 className="w-5 h-5 text-success shrink-0 mt-0.5" />
-                    {strategy}
+          {/* Right: Industry references */}
+          <div className="fade-in-up stagger-4">
+            <h3 className="text-base font-semibold text-foreground mb-4">업계 권고 사항</h3>
+            <div className="space-y-4">
+              {references.map((ref, index) => (
+                <div key={index} className="p-4 rounded-xl bg-card shadow-card">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                    "{ref.content}"
+                  </p>
+                  <p className="text-xs text-primary font-medium">— {ref.source}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Summary checklist */}
+            <div className="mt-4 p-4 rounded-xl bg-secondary">
+              <h4 className="text-sm font-semibold text-foreground mb-3">보안 체크리스트</h4>
+              <ul className="space-y-2">
+                {[
+                  "네트워크 분리/세그멘테이션",
+                  "데이터 레지던시 준수",
+                  "접근 통제 및 암호화",
+                  "감사 로그 및 키 관리"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center gap-2 text-sm text-foreground">
+                    <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
+                    {item}
                   </li>
                 ))}
               </ul>
-              
-              <div className="mt-4 pt-4 border-t border-border">
-                <p className="text-sm text-muted-foreground">
-                  데이터가 쌓일수록 <span className="text-primary font-semibold">라인/제품군별 모델 고도화</span> 진행
-                </p>
-              </div>
             </div>
           </div>
         </div>

@@ -1,15 +1,16 @@
 import { SlideLayout } from "./SlideLayout";
-import { Search, Wrench, CheckSquare, FileText, ListChecks } from "lucide-react";
+import { Search, Wrench, CheckSquare, Database, Shield, Brain } from "lucide-react";
 
 export function SlidePOC() {
   const phases = [
     {
       weeks: "Week 1-2",
-      title: "Data Discovery & Design",
+      title: "Data Discovery",
       icon: Search,
       tasks: [
-        "수집 가능 데이터 범위 확정 (제어/품질/유틸리티)",
-        "표준 스키마·ID 체계 정의 (설비/LOT/공정/레시피)"
+        "수집 가능 데이터 확정 (제어/품질/유틸리티)",
+        "키 체계(LOT/설비ID/레시피)와 표준 스키마 정의",
+        "보안 게이트웨이 정책(무엇을 밖으로 내보낼지) 합의"
       ],
       color: "from-blue-500 to-cyan-500"
     },
@@ -18,8 +19,8 @@ export function SlidePOC() {
       title: "Pilot Build",
       icon: Wrench,
       tasks: [
-        "오프라인 수집/정제 파이프라인 구축 (최소 1개 라인/설비군)",
-        "LLM 인사이트 2~3개 유즈케이스 구현 (불량 원인/셋업 영향/병목)"
+        "온프렘 수집·정제 파이프라인 구축 (최소 1개 라인/설비군)",
+        "인사이트 2~3개 구현 (불량 원인 랭킹, 조기 경보, 셋업 최적화)"
       ],
       color: "from-violet-500 to-purple-500"
     },
@@ -29,16 +30,16 @@ export function SlidePOC() {
       icon: CheckSquare,
       tasks: [
         "경영진/현장 대시보드 시연",
-        "개선 액션과 KPI 정의 (현장 실행 가능한 수준)"
+        "KPI/운영 프로세스(플레이북) 확정"
       ],
       color: "from-emerald-500 to-green-500"
     }
   ];
 
-  const preparations = [
-    "가상 데이터 기반 MVP 데모 (Excel로 생성 가능)",
-    "아키텍처 비교 1페이지 시각자료",
-    "질의 리스트 (데이터 현황/지표/변수/엑셀 사용)"
+  const pocScope = [
+    { icon: Database, text: "데이터 통합" },
+    { icon: Brain, text: "인사이트 2~3개" },
+    { icon: Shield, text: "대시보드" }
   ];
 
   return (
@@ -49,13 +50,23 @@ export function SlidePOC() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
             PoC 제안 <span className="text-primary">(6-8주)</span>
           </h2>
-          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            "데이터 통합 + 인사이트 + 대시보드"를 최소 단위로 증명
+          <p className="mt-2 text-base text-muted-foreground max-w-3xl fade-in-up stagger-2">
+            "데이터 통합 + 인사이트 2~3개 + 대시보드"로 증명
           </p>
         </div>
 
+        {/* PoC Scope badges */}
+        <div className="flex gap-3 mb-5 fade-in-up stagger-2">
+          {pocScope.map((item, index) => (
+            <div key={index} className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10">
+              <item.icon className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">{item.text}</span>
+            </div>
+          ))}
+        </div>
+
         {/* Timeline */}
-        <div className="grid grid-cols-3 gap-6 max-w-6xl mb-5">
+        <div className="grid grid-cols-3 gap-6 max-w-6xl">
           {phases.map((phase, index) => (
             <div 
               key={index}
@@ -68,7 +79,7 @@ export function SlidePOC() {
               </div>
               
               <div className="pt-4">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3 mb-4">
                   <div className={`p-2.5 rounded-xl bg-gradient-to-br ${phase.color}`}>
                     <phase.icon className="w-5 h-5 text-white" />
                   </div>
@@ -86,25 +97,6 @@ export function SlidePOC() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Preparation checklist */}
-        <div className="p-5 rounded-xl bg-card shadow-card max-w-6xl fade-in-up stagger-5">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2.5 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500">
-              <ListChecks className="w-5 h-5 text-white" />
-            </div>
-            <h3 className="text-base font-semibold text-foreground">미팅 전 준비물</h3>
-          </div>
-          
-          <div className="grid grid-cols-3 gap-4">
-            {preparations.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 p-3 rounded-xl bg-secondary">
-                <FileText className="w-4 h-4 text-primary shrink-0" />
-                <p className="text-sm text-muted-foreground">{item}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </SlideLayout>

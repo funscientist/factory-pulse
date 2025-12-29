@@ -1,87 +1,115 @@
 import { SlideLayout } from "./SlideLayout";
-import { Database, Server, FileSpreadsheet, CheckCircle2, AlertCircle } from "lucide-react";
+import { Server, Database, Cloud, Shield, ArrowRight } from "lucide-react";
 
 export function SlideDataHub() {
-  const components = [
-    {
-      icon: Server,
-      title: "Edge Collector",
-      items: ["설비/센서 데이터", "로그 수집", "실시간 스트리밍"],
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      icon: Database,
-      title: "내부 DB/데이터레이크",
-      items: ["표준화된 저장소", "시계열 데이터", "히스토리 관리"],
-      color: "from-violet-500 to-purple-500"
-    },
-    {
-      icon: FileSpreadsheet,
-      title: "표준 스키마",
-      items: ["설비/공정 ID 체계", "레시피/LOT 매핑", "품질측정/유틸리티"],
-      color: "from-emerald-500 to-green-500"
-    }
+  const onPremComponents = [
+    "OT/설비 로그 수집 (Edge Collector)",
+    "내부 DB/Data Lake (원천 데이터 저장)",
+    "정제/피처 생성 (표준 스키마, LOT/설비ID/레시피)",
+    "보안 게이트웨이 (전송 정책/마스킹/허용 목록/감사 로그)"
+  ];
+
+  const cloudComponents = [
+    "LLM/AI 분석 서비스 (원인추정/상관/추천)",
+    "모델 레지스트리/모니터링 (성능 드리프트, 재학습)",
+    "대시보드 서비스 (경영진/현장)"
   ];
 
   return (
-    <SlideLayout slideNumber={7} totalSlides={12} category="Product" variant="gray">
+    <SlideLayout slideNumber={7} totalSlides={12} category="Architecture" variant="gray">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
-          <span className="badge badge-info mb-3 fade-in-up">Layer 1: Data Infrastructure</span>
+          <span className="badge badge-info mb-3 fade-in-up">Hybrid Architecture</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            Offline Data Hub
+            단일 아키텍처: Hybrid Reference
           </h2>
-          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            1단계 통합 수집 인프라가 프로젝트의 핵심입니다
+          <p className="mt-2 text-base text-muted-foreground max-w-3xl fade-in-up stagger-2">
+            원칙: 원천 데이터는 사내에 고정, <span className="text-primary font-semibold">"분석 레이어만"</span> 승인형 하이브리드로 고성능 운영
           </p>
         </div>
 
-        {/* Why section */}
-        <div className="p-4 rounded-xl border-l-4 border-primary bg-blue-50 max-w-5xl mb-6 fade-in-up stagger-3">
-          <div className="flex items-start gap-4">
-            <AlertCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-            <div>
-              <h3 className="text-sm font-semibold text-foreground mb-1">왜 1단계가 데이터 통합인가?</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                고객사 현황상 <span className="text-primary font-semibold">"수집은 되어도 연결/표준화가 안 됨"</span>이 병목입니다.
-                PoC 성공의 70%가 여기서 결정됩니다.
-              </p>
+        <div className="grid grid-cols-2 gap-6 max-w-6xl mb-5">
+          {/* On-Prem */}
+          <div className="p-5 rounded-xl bg-card shadow-card fade-in-up stagger-3">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500">
+                <Server className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">On-Prem</h3>
+                <p className="text-xs text-muted-foreground">망분리 구역</p>
+              </div>
             </div>
+            
+            <ul className="space-y-2">
+              {onPremComponents.map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <Database className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Cloud */}
+          <div className="p-5 rounded-xl bg-card shadow-card fade-in-up stagger-4">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-3 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500">
+                <Cloud className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">Cloud</h3>
+                <p className="text-xs text-muted-foreground">승인된 연결 구역</p>
+              </div>
+            </div>
+            
+            <ul className="space-y-2">
+              {cloudComponents.map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <Cloud className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Components */}
-        <div className="grid grid-cols-3 gap-6 max-w-6xl mb-5">
-          {components.map((comp, index) => (
-            <div 
-              key={index}
-              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 4}`}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`p-2.5 rounded-xl bg-gradient-to-br ${comp.color}`}>
-                  <comp.icon className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground">{comp.title}</h3>
-              </div>
-              <ul className="space-y-2">
-                {comp.items.map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+        {/* Flow diagram */}
+        <div className="flex items-center justify-center gap-4 p-4 rounded-xl bg-card shadow-card max-w-4xl mx-auto fade-in-up stagger-5">
+          <div className="text-center">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 w-fit mx-auto mb-2">
+              <Server className="w-5 h-5 text-white" />
             </div>
-          ))}
+            <p className="text-xs font-medium text-foreground">On-Prem</p>
+            <p className="text-[10px] text-muted-foreground">원천 데이터 고정</p>
+          </div>
+          
+          <div className="flex flex-col items-center">
+            <ArrowRight className="w-8 h-8 text-primary" />
+            <p className="text-[10px] text-muted-foreground mt-1">피처/집계/마스킹 데이터</p>
+          </div>
+          
+          <div className="p-3 rounded-lg bg-secondary">
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary" />
+              <span className="text-xs font-medium text-foreground">보안 게이트웨이</span>
+            </div>
+          </div>
+          
+          <ArrowRight className="w-6 h-6 text-border" />
+          
+          <div className="text-center">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-violet-500 to-purple-500 w-fit mx-auto mb-2">
+              <Cloud className="w-5 h-5 text-white" />
+            </div>
+            <p className="text-xs font-medium text-foreground">Cloud</p>
+            <p className="text-[10px] text-muted-foreground">AI 분석/대시보드</p>
+          </div>
         </div>
 
-        {/* Quick start option */}
-        <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-dashed border-border shadow-sm max-w-6xl fade-in-up stagger-5">
-          <FileSpreadsheet className="w-5 h-5 text-muted-foreground" />
-          <p className="text-sm text-muted-foreground">
-            <span className="text-foreground font-medium">(옵션)</span> 파일 기반 적재(Excel/CSV)로 빠른 MVP 시작 가능
-          </p>
-        </div>
+        <p className="text-xs text-muted-foreground mt-4 text-center fade-in-up stagger-5 italic">
+          하이브리드는 "온프렘/엣지 + 퍼블릭 클라우드"를 조합해 실행하는 구조로 널리 정의됩니다. — Google Cloud
+        </p>
       </div>
     </SlideLayout>
   );

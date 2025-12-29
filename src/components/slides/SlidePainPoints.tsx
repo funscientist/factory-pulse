@@ -1,81 +1,95 @@
 import { SlideLayout } from "./SlideLayout";
-import { AlertTriangle, Database, Cpu, Shield } from "lucide-react";
+import { AlertTriangle, Database, Search, Settings, BarChart3, Brain } from "lucide-react";
 
 export function SlidePainPoints() {
   const painPoints = [
     {
       icon: Database,
-      title: "데이터 분산 및 사일로",
-      description: "제어/품질/유틸리티 데이터가 개별 시스템에 흩어져 있고, 통합 수집·관리 인프라 부재",
+      title: "데이터 분산·체계 부재",
+      description: "제어/품질/유틸리티 데이터가 분산되어 통합 수집·정규화·이력 관리 체계 부재",
       severity: "high"
     },
     {
-      icon: Cpu,
-      title: "AI/ML 역량 부족",
-      description: "AI 도입 필요성은 크지만 데이터 운영/ML 파이프라인 구축 경험 부족",
+      icon: Search,
+      title: "불량 원인 조기 식별 불가",
+      description: '"데이터는 있는데" 불량의 원인을 조기에 못 잡고 있음',
+      severity: "critical"
+    },
+    {
+      icon: Settings,
+      title: "셋업 최적화 경험 의존",
+      description: "다품종 셋업 최적화가 경험 의존이며 표준화되지 않음",
+      severity: "high"
+    },
+    {
+      icon: BarChart3,
+      title: "사후 리포팅 중심",
+      description: "경영진 보고는 사후 리포팅 중심으로 의사결정 지연",
       severity: "medium"
     },
     {
-      icon: Shield,
-      title: "보안 정책 제약",
-      description: "원청(예: 삼성 SDI) 보안 정책 → 오프라인(외부망 차단) 수집·처리 요구",
-      severity: "critical"
+      icon: Brain,
+      title: "AI 파이프라인 경험 부족",
+      description: "AI 도입 의지는 강하지만 운영 가능한 데이터/모델 파이프라인 경험 부족",
+      severity: "medium"
     }
   ];
 
   const getSeverityBadge = (severity: string) => {
     switch (severity) {
       case "critical":
-        return <span className="badge badge-error">Critical</span>;
+        return <span className="badge badge-error text-xs">Critical</span>;
       case "high":
-        return <span className="badge badge-warning">High</span>;
+        return <span className="badge badge-warning text-xs">High</span>;
       default:
-        return <span className="badge badge-info">Medium</span>;
+        return <span className="badge badge-info text-xs">Medium</span>;
     }
   };
 
   return (
     <SlideLayout slideNumber={3} totalSlides={12} category="Problem" variant="gray">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-6">
+        <div className="mb-5">
           <span className="badge badge-error mb-3 fade-in-up">Pain Points</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            현황과 Pain Point
+            현재 Pain Point
           </h2>
-          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            현장 현실을 직시합니다
-          </p>
         </div>
 
-        <div className="space-y-4 max-w-5xl">
-          {painPoints.map((point, index) => (
+        <div className="grid grid-cols-3 gap-4 max-w-6xl">
+          {painPoints.slice(0, 3).map((point, index) => (
             <div 
               key={index}
-              className={`flex items-start gap-4 p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
             >
-              <div className="p-3 rounded-xl bg-secondary shrink-0">
-                <point.icon className="w-6 h-6 text-foreground" />
-              </div>
-              
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-lg font-semibold text-foreground">{point.title}</h3>
-                  {getSeverityBadge(point.severity)}
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-secondary shrink-0">
+                  <point.icon className="w-5 h-5 text-foreground" />
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{point.description}</p>
+                {getSeverityBadge(point.severity)}
               </div>
+              <h3 className="text-sm font-semibold text-foreground mb-2">{point.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{point.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Key constraint highlight */}
-        <div className="mt-6 p-4 rounded-xl border-l-4 border-destructive bg-red-50 max-w-5xl fade-in-up stagger-5">
-          <div className="flex items-center gap-3">
-            <AlertTriangle className="w-5 h-5 text-destructive shrink-0" />
-            <p className="text-sm text-foreground">
-              <span className="font-semibold">가장 큰 제약:</span> 원청 보안 정책으로 인한 오프라인(외부망 차단) 수집·처리 필수
-            </p>
-          </div>
+        <div className="grid grid-cols-2 gap-4 max-w-4xl mt-4">
+          {painPoints.slice(3).map((point, index) => (
+            <div 
+              key={index}
+              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 5}`}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-secondary shrink-0">
+                  <point.icon className="w-5 h-5 text-foreground" />
+                </div>
+                {getSeverityBadge(point.severity)}
+              </div>
+              <h3 className="text-sm font-semibold text-foreground mb-2">{point.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{point.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </SlideLayout>
