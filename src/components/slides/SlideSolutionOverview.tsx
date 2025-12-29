@@ -23,7 +23,7 @@ export function SlideSolutionOverview() {
   return <SlideLayout slideNumber={5} totalSlides={12} category="Solution" variant="gray">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-6">
-          <span className="badge badge-info mb-3 fade-in-up">Solution</span>
+          <span className="badge badge-info mb-3 fade-in-up">운영 데이터(로그/이벤트)를 AI로 상관·이상탐지·원인추정해 운영 프로세스를 자동화</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
             Polarpulse 제안 개요
           </h2>
@@ -51,9 +51,7 @@ export function SlideSolutionOverview() {
                 </div>
 
                 {/* Arrow connector */}
-                {index < layers.length - 1 && <div className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10">
-                    <ArrowRight className="w-6 h-6 text-border" />
-                  </div>}
+                {index < layers.length - 1}
               </div>)}
           </div>
 
