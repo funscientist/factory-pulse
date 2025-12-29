@@ -1,22 +1,9 @@
 import { SlideLayout } from "./SlideLayout";
 import { Server, Database, Cloud, Shield, ArrowRight } from "lucide-react";
-
 export function SlideDataHub() {
-  const onPremComponents = [
-    "OT/설비 로그 수집 (Edge Collector)",
-    "내부 DB/Data Lake (원천 데이터 저장)",
-    "정제/피처 생성 (표준 스키마, LOT/설비ID/레시피)",
-    "보안 게이트웨이 (전송 정책/마스킹/허용 목록/감사 로그)"
-  ];
-
-  const cloudComponents = [
-    "LLM/AI 분석 서비스 (원인추정/상관/추천)",
-    "모델 레지스트리/모니터링 (성능 드리프트, 재학습)",
-    "대시보드 서비스 (경영진/현장)"
-  ];
-
-  return (
-    <SlideLayout slideNumber={7} totalSlides={12} category="Architecture" variant="gray">
+  const onPremComponents = ["OT/설비 로그 수집 (Edge Collector)", "내부 DB/Data Lake (원천 데이터 저장)", "정제/피처 생성 (표준 스키마, LOT/설비ID/레시피)", "보안 게이트웨이 (전송 정책/마스킹/허용 목록/감사 로그)"];
+  const cloudComponents = ["LLM/AI 분석 서비스 (원인추정/상관/추천)", "모델 레지스트리/모니터링 (성능 드리프트, 재학습)", "대시보드 서비스 (경영진/현장)"];
+  return <SlideLayout slideNumber={7} totalSlides={12} category="Architecture" variant="gray">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
           <span className="badge badge-info mb-3 fade-in-up">Hybrid Architecture</span>
@@ -42,12 +29,10 @@ export function SlideDataHub() {
             </div>
             
             <ul className="space-y-2">
-              {onPremComponents.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              {onPremComponents.map((item, index) => <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
                   <Database className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                   {item}
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -64,12 +49,10 @@ export function SlideDataHub() {
             </div>
             
             <ul className="space-y-2">
-              {cloudComponents.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+              {cloudComponents.map((item, index) => <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
                   <Cloud className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                   {item}
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
         </div>
@@ -107,10 +90,7 @@ export function SlideDataHub() {
           </div>
         </div>
 
-        <p className="text-xs text-muted-foreground mt-4 text-center fade-in-up stagger-5 italic">
-          하이브리드는 "온프렘/엣지 + 퍼블릭 클라우드"를 조합해 실행하는 구조로 널리 정의됩니다. — Google Cloud
-        </p>
+        
       </div>
-    </SlideLayout>
-  );
+    </SlideLayout>;
 }
