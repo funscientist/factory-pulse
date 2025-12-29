@@ -51,8 +51,8 @@ export function SlidePainPoints() {
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
           <span className="badge badge-error mb-3 fade-in-up">Pain Points</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            현재 Pain Point
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground fade-in-up stagger-1">
+            데이터는 쌓이지만, 문제는 해결되지 않고 있습니다
           </h2>
         </div>
 
