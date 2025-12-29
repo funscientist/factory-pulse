@@ -37,24 +37,24 @@ export function SlideWorkflow() {
 
         <div className="grid grid-cols-2 gap-8 max-w-6xl">
           {/* Left: Workflow steps */}
-          <div className="space-y-2">
+          <div className="space-y-1">
             {steps.map((item, index) => <div key={index} className={`relative fade-in-up stagger-${index + 2}`}>
-                <div className="flex items-start gap-4 p-4 rounded-xl bg-card shadow-card">
+                <div className="flex items-start gap-4 p-3 rounded-xl bg-card shadow-card">
                   <div className="flex flex-col items-center">
-                    <span className="text-xs font-bold text-primary mb-1">{item.step}</span>
-                    <div className={`p-2 rounded-lg bg-gradient-to-br ${item.color}`}>
-                      <item.icon className="w-4 h-4 text-white" />
+                    <span className="text-sm font-bold text-primary mb-1">{item.step}</span>
+                    <div className={`p-2.5 rounded-lg bg-gradient-to-br ${item.color}`}>
+                      <item.icon className="w-5 h-5 text-white" />
                     </div>
                   </div>
                   
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
-                    <p className="text-xs text-muted-foreground">{item.description}</p>
+                    <h3 className="text-base font-semibold text-foreground mb-1">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
                 </div>
 
                 {/* Connector line */}
-                {index < steps.length - 1 && <div className="flex justify-center py-1">
+                {index < steps.length - 1 && <div className="flex justify-center py-0.5">
                     <ArrowDown className="w-4 h-4 text-border" />
                   </div>}
               </div>)}
