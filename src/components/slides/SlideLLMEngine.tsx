@@ -34,73 +34,70 @@ export function SlideLLMEngine() {
   return (
     <SlideLayout slideNumber={8} totalSlides={12} category="Security">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-5">
-          <span className="badge badge-warning mb-3 fade-in-up">Security & Compliance</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            보안/승인 포인트
+        <div className="mb-4">
+          <span className="badge badge-warning mb-2 fade-in-up">Security & Compliance</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground fade-in-up stagger-1">
+            Polarpulse 보안 설계
           </h2>
-          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            OT 환경에서의 하이브리드 운영 원칙
-          </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 max-w-6xl">
+        <div className="grid grid-cols-2 gap-6 max-w-6xl">
           {/* Left: Security principles */}
-          <div className="fade-in-up stagger-3">
-            <h3 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
+          <div className="fade-in-up stagger-2">
+            <h3 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
               <Shield className="w-5 h-5 text-primary" />
-              Polarpulse 보안 설계
+              핵심 보안 원칙
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {securityPrinciples.map((principle, index) => (
                 <div 
                   key={index}
-                  className="p-4 rounded-xl bg-card shadow-card"
+                  className="p-3 rounded-xl bg-card shadow-card"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 shrink-0">
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 shrink-0">
                       <principle.icon className="w-5 h-5 text-white" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-sm font-semibold text-foreground mb-1">{principle.title}</h4>
+                      <h4 className="text-base font-semibold text-foreground mb-0.5">{principle.title}</h4>
                       <p className="text-sm text-muted-foreground">{principle.description}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Right: Industry references */}
-          <div className="fade-in-up stagger-4">
-            <h3 className="text-base font-semibold text-foreground mb-4">업계 권고 사항</h3>
-            <div className="space-y-4">
-              {references.map((ref, index) => (
-                <div key={index} className="p-4 rounded-xl bg-card shadow-card">
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-2">
-                    "{ref.content}"
-                  </p>
-                  <p className="text-xs text-primary font-medium">— {ref.source}</p>
-                </div>
-              ))}
-            </div>
 
             {/* Summary checklist */}
-            <div className="mt-4 p-4 rounded-xl bg-secondary">
-              <h4 className="text-sm font-semibold text-foreground mb-3">보안 체크리스트</h4>
-              <ul className="space-y-2">
+            <div className="mt-3 p-3 rounded-xl bg-secondary">
+              <h4 className="text-sm font-semibold text-foreground mb-2">보안 체크리스트</h4>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
                 {[
                   "네트워크 분리/세그멘테이션",
                   "데이터 레지던시 준수",
                   "접근 통제 및 암호화",
                   "감사 로그 및 키 관리"
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-2 text-sm text-foreground">
+                  <div key={index} className="flex items-center gap-2 text-sm text-foreground">
                     <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
                     {item}
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Industry references */}
+          <div className="fade-in-up stagger-3">
+            <h3 className="text-base font-semibold text-foreground mb-3">업계 권고 사항</h3>
+            <div className="space-y-3">
+              {references.map((ref, index) => (
+                <div key={index} className="p-4 rounded-xl bg-card shadow-card">
+                  <p className="text-base text-muted-foreground leading-relaxed mb-2">
+                    "{ref.content}"
+                  </p>
+                  <p className="text-sm text-primary font-medium">— {ref.source}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
