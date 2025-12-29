@@ -44,41 +44,41 @@ export function SlidePOC() {
   return (
     <SlideLayout slideNumber={11} totalSlides={12} category="Implementation" variant="gray">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-3">
-          <span className="badge badge-info mb-2 fade-in-up text-xs">Proof of Concept</span>
-          <h2 className="text-xl md:text-2xl font-bold text-foreground fade-in-up stagger-1">
+        <div className="mb-5">
+          <span className="badge badge-info mb-3 fade-in-up">Proof of Concept</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
             PoC 제안 <span className="text-primary">(6-8주)</span>
           </h2>
-          <p className="mt-1 text-sm text-muted-foreground max-w-xl fade-in-up stagger-2">
+          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
             "데이터 통합 + 인사이트 + 대시보드"를 최소 단위로 증명
           </p>
         </div>
 
         {/* Timeline */}
-        <div className="grid grid-cols-3 gap-4 max-w-6xl mb-4">
+        <div className="grid grid-cols-3 gap-6 max-w-6xl mb-5">
           {phases.map((phase, index) => (
             <div 
               key={index}
-              className={`relative p-3 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+              className={`relative p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="absolute -top-2 left-3">
-                <span className="px-2 py-0.5 rounded-full bg-primary text-white text-[10px] font-bold">
+              <div className="absolute -top-3 left-4">
+                <span className="px-3 py-1 rounded-full bg-primary text-white text-xs font-bold">
                   {phase.weeks}
                 </span>
               </div>
               
-              <div className="pt-3">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className={`p-1.5 rounded-lg bg-gradient-to-br ${phase.color}`}>
-                    <phase.icon className="w-3.5 h-3.5 text-white" />
+              <div className="pt-4">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`p-2.5 rounded-xl bg-gradient-to-br ${phase.color}`}>
+                    <phase.icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-xs font-semibold text-foreground">{phase.title}</h3>
+                  <h3 className="text-base font-semibold text-foreground">{phase.title}</h3>
                 </div>
                 
-                <ul className="space-y-1.5">
+                <ul className="space-y-2">
                   {phase.tasks.map((task, i) => (
-                    <li key={i} className="flex items-start gap-1.5 text-[10px] text-muted-foreground">
-                      <span className="w-1 h-1 rounded-full bg-primary mt-1.5 shrink-0" />
+                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                       {task}
                     </li>
                   ))}
@@ -89,19 +89,19 @@ export function SlidePOC() {
         </div>
 
         {/* Preparation checklist */}
-        <div className="p-3 rounded-xl bg-card shadow-card max-w-6xl fade-in-up stagger-5">
-          <div className="flex items-center gap-2 mb-3">
-            <div className="p-1.5 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500">
-              <ListChecks className="w-3.5 h-3.5 text-white" />
+        <div className="p-5 rounded-xl bg-card shadow-card max-w-6xl fade-in-up stagger-5">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2.5 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500">
+              <ListChecks className="w-5 h-5 text-white" />
             </div>
-            <h3 className="text-xs font-semibold text-foreground">미팅 전 준비물</h3>
+            <h3 className="text-base font-semibold text-foreground">미팅 전 준비물</h3>
           </div>
           
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-4">
             {preparations.map((item, index) => (
-              <div key={index} className="flex items-center gap-2 p-2 rounded-lg bg-secondary">
-                <FileText className="w-3 h-3 text-primary shrink-0" />
-                <p className="text-[10px] text-muted-foreground">{item}</p>
+              <div key={index} className="flex items-center gap-3 p-3 rounded-xl bg-secondary">
+                <FileText className="w-4 h-4 text-primary shrink-0" />
+                <p className="text-sm text-muted-foreground">{item}</p>
               </div>
             ))}
           </div>

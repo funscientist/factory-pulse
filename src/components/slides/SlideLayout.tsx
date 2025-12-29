@@ -55,7 +55,7 @@ export function SlideLayout({
           </header>
 
           {/* Main content */}
-          <main className="flex-1 px-8 pb-6 overflow-hidden">
+          <main className="flex-1 px-10 pb-4 overflow-hidden">
             {children}
           </main>
         </div>

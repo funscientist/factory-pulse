@@ -33,36 +33,36 @@ export function SlideLLMEngine() {
   return (
     <SlideLayout slideNumber={8} totalSlides={12} category="Product">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-3">
-          <span className="badge badge-info mb-2 fade-in-up text-xs">Layer 2: AI Analytics</span>
-          <h2 className="text-xl md:text-2xl font-bold text-foreground fade-in-up stagger-1">
+        <div className="mb-5">
+          <span className="badge badge-info mb-3 fade-in-up">Layer 2: AI Analytics</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
             LLM Insight Engine
           </h2>
-          <p className="mt-1 text-sm text-muted-foreground max-w-xl fade-in-up stagger-2">
+          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
             오프라인 제약을 전제로 "정확도 확보 방식"을 설계합니다
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 max-w-6xl">
+        <div className="grid grid-cols-2 gap-8 max-w-6xl">
           {/* Analysis features */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2 fade-in-up stagger-3">
-              <Brain className="w-4 h-4 text-primary" />
+            <h3 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2 fade-in-up stagger-3">
+              <Brain className="w-5 h-5 text-primary" />
               분석 기능
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {features.map((feature, index) => (
                 <div 
                   key={index}
-                  className={`p-3 rounded-lg bg-card shadow-card fade-in-up stagger-${index + 4}`}
+                  className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 4}`}
                 >
-                  <div className="flex items-start gap-3">
-                    <div className={`p-1.5 rounded-lg bg-gradient-to-br ${feature.color} shrink-0`}>
-                      <feature.icon className="w-3.5 h-3.5 text-white" />
+                  <div className="flex items-start gap-4">
+                    <div className={`p-2.5 rounded-xl bg-gradient-to-br ${feature.color} shrink-0`}>
+                      <feature.icon className="w-5 h-5 text-white" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-semibold text-foreground mb-0.5">{feature.title}</h4>
-                      <p className="text-[11px] text-muted-foreground">{feature.description}</p>
+                      <h4 className="text-sm font-semibold text-foreground mb-1">{feature.title}</h4>
+                      <p className="text-sm text-muted-foreground">{feature.description}</p>
                     </div>
                   </div>
                 </div>
@@ -72,25 +72,25 @@ export function SlideLLMEngine() {
 
           {/* Offline accuracy strategy */}
           <div className="fade-in-up stagger-5">
-            <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-              <Shield className="w-4 h-4 text-primary" />
+            <h3 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
+              <Shield className="w-5 h-5 text-primary" />
               오프라인 정확도 확보 전략
             </h3>
-            <div className="p-3 rounded-lg bg-card shadow-card">
-              <p className="text-[11px] text-muted-foreground mb-3">
+            <div className="p-5 rounded-xl bg-card shadow-card">
+              <p className="text-sm text-muted-foreground mb-4">
                 초기에는 대규모 학습 의존을 줄이고, 다음 조합으로 "식별 가능" 영역부터 확장:
               </p>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {strategies.map((strategy, index) => (
-                  <li key={index} className="flex items-start gap-2 text-xs text-foreground">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0 mt-0.5" />
+                  <li key={index} className="flex items-start gap-3 text-sm text-foreground">
+                    <CheckCircle2 className="w-5 h-5 text-success shrink-0 mt-0.5" />
                     {strategy}
                   </li>
                 ))}
               </ul>
               
-              <div className="mt-3 pt-3 border-t border-border">
-                <p className="text-[11px] text-muted-foreground">
+              <div className="mt-4 pt-4 border-t border-border">
+                <p className="text-sm text-muted-foreground">
                   데이터가 쌓일수록 <span className="text-primary font-semibold">라인/제품군별 모델 고도화</span> 진행
                 </p>
               </div>
