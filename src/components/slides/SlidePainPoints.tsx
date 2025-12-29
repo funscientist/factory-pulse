@@ -50,7 +50,7 @@ export function SlidePainPoints() {
     <SlideLayout slideNumber={4} totalSlides={10} category="Current State" variant="gray">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-6">
-          <span className="badge badge-destructive mb-3 fade-in-up">Pain Points</span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-red-500 to-pink-500 text-white text-sm font-semibold shadow-md mb-3 fade-in-up">Pain Points</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">현재 문제</h2>
           <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
             데이터는 쌓이지만, 연결되지 않아 분석이 지연됩니다
