@@ -1,36 +1,34 @@
 import { SlideLayout } from "./SlideLayout";
-import { Search, Wrench, CheckSquare, Database, Shield, Brain } from "lucide-react";
+import { Search, Database, Brain, LayoutDashboard } from "lucide-react";
 
 export function SlidePOC() {
   const phases = [
     {
-      weeks: "Week 1-2",
-      title: "Data Discovery",
+      weeks: "1~2주",
+      title: "데이터 연결·검증",
       icon: Search,
       tasks: [
-        "수집 가능 데이터 확정 (제어/품질/유틸리티)",
-        "키 체계(LOT/설비ID/레시피)와 표준 스키마 정의",
-        "보안 게이트웨이 정책(무엇을 밖으로 내보낼지) 합의"
+        "누락/중복/시간동기/키 매핑(LOT·설비·공정)",
+        "표준 스키마, KPI 베이스라인 산출"
       ],
       color: "from-blue-500 to-cyan-500"
     },
     {
-      weeks: "Week 3-5",
-      title: "Pilot Build",
-      icon: Wrench,
+      weeks: "3~4주",
+      title: "분석/랭킹",
+      icon: Brain,
       tasks: [
-        "온프렘 수집·정제 파이프라인 구축 (최소 1개 라인/설비군)",
-        "인사이트 2~3개 구현 (불량 원인 랭킹, 조기 경보, 셋업 최적화)"
+        "이상탐지 + 원인 후보 Top-N(신뢰도 포함)"
       ],
       color: "from-violet-500 to-purple-500"
     },
     {
-      weeks: "Week 6-8",
-      title: "Validate & Readout",
-      icon: CheckSquare,
+      weeks: "5~6주",
+      title: "대시보드/성과 측정",
+      icon: LayoutDashboard,
       tasks: [
-        "경영진/현장 대시보드 시연",
-        "KPI/운영 프로세스(플레이북) 확정"
+        "알람·리포트·KPI 추적",
+        "재현성 확인"
       ],
       color: "from-emerald-500 to-green-500"
     }
@@ -38,20 +36,20 @@ export function SlidePOC() {
 
   const pocScope = [
     { icon: Database, text: "데이터 통합" },
-    { icon: Brain, text: "인사이트 2~3개" },
-    { icon: Shield, text: "대시보드" }
+    { icon: Brain, text: "이상탐지 + 원인랭킹" },
+    { icon: LayoutDashboard, text: "대시보드" }
   ];
 
   return (
-    <SlideLayout slideNumber={11} totalSlides={12} category="Implementation" variant="gray">
+    <SlideLayout slideNumber={6} totalSlides={10} category="PoC Plan">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
           <span className="badge badge-info mb-3 fade-in-up">Proof of Concept</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            PoC 제안 <span className="text-primary">(6-8주)</span>
+            실행 단계 <span className="text-primary">(6주 PoC)</span>
           </h2>
           <p className="mt-2 text-base text-muted-foreground max-w-3xl fade-in-up stagger-2">
-            "데이터 통합 + 인사이트 2~3개 + 대시보드"로 증명
+            "불량 조기경보 + 원인 후보 랭킹" 정량 성과 검증
           </p>
         </div>
 

@@ -1,52 +1,51 @@
 import { SlideLayout } from "./SlideLayout";
-import { Database, BarChart3, Brain, Shield } from "lucide-react";
+import { Target, Shield, Clock, TrendingDown } from "lucide-react";
 
 export function SlideCover() {
   return (
-    <SlideLayout slideNumber={1} totalSlides={12} variant="hero">
+    <SlideLayout slideNumber={1} totalSlides={10} variant="hero">
       <div className="flex flex-col justify-center h-full">
         {/* Main headline */}
         <div className="max-w-5xl">
           <div className="fade-in-up">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium mb-6">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              Polarpulse x BaronTech | Hybrid Only
+              PolarPulse x Baron Tech 맞춤형 제안서
             </span>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 fade-in-up stagger-1">
-            Secure AIOps
+            Secure Decision Intelligence로
             <br />
-            <span className="text-white/90">제조 특화 프로세스 최적화 솔루션</span>
+            <span className="text-white/90">생산 지능화: 수율 극대화 · 품질 안정화</span>
           </h1>
           
           <p className="text-lg md:text-xl text-white/80 mb-8 max-w-4xl fade-in-up stagger-2">
-            오프라인(망분리) 제조 데이터를 'Secure AIOps'로 연결해 
-            <span className="font-semibold text-white"> 품질·생산성·의사결정</span>을 동시에 달성
+            망분리/온프렘 환경에서 원천 데이터 외부 반출 없이 분석·인사이트 제공
           </p>
 
           {/* Key features */}
-          <div className="grid grid-cols-2 gap-4 max-w-4xl">
+          <div className="grid grid-cols-2 gap-4 max-w-4xl mb-6">
             {[
               {
-                icon: Database,
-                title: "설비·품질·유틸리티 로그 통합",
-                desc: "LLM/AI 분석 → 대시보드 → 실행으로 연결"
+                icon: Target,
+                title: "목표 KPI",
+                desc: "불량 PPM↓ · 재작업률↓ · Cpk↑ · 조건편차↓ · LOT 추적 리드타임↓"
               },
               {
-                icon: BarChart3,
-                title: "Dual Dashboard 제공",
-                desc: "경영진 의사결정 + 현장 KPI"
-              },
-              {
-                icon: Brain,
-                title: "다품종 소량 생산 최적화",
-                desc: "품질 안정화 / 생산성 향상 / 데이터 기반 의사결정"
+                icon: Clock,
+                title: "PoC 6주",
+                desc: "\"불량 조기경보 + 원인 후보 랭킹\" 정량 성과 검증"
               },
               {
                 icon: Shield,
-                title: "Hybrid Architecture",
-                desc: "DB/원천 데이터는 사내 고정, 분석은 승인형 하이브리드"
+                title: "보안 아키텍처",
+                desc: "원천 데이터 온프렘 고정, 비식별/집계 데이터만 전송"
+              },
+              {
+                icon: TrendingDown,
+                title: "Zero-Impact 수집",
+                desc: "생산 시스템과 분리된 읽기 전용 수집"
               }
             ].map((item, index) => (
               <div 

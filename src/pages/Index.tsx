@@ -1,20 +1,18 @@
 import { useState, useEffect, useCallback } from "react";
 import { SlideCover } from "@/components/slides/SlideCover";
 import { SlideCustomerGoals } from "@/components/slides/SlideCustomerGoals";
-import { SlidePainPoints } from "@/components/slides/SlidePainPoints";
 import { SlideWhyNow } from "@/components/slides/SlideWhyNow";
+import { SlidePainPoints } from "@/components/slides/SlidePainPoints";
 import { SlideSolutionOverview } from "@/components/slides/SlideSolutionOverview";
-import { SlideWorkflow } from "@/components/slides/SlideWorkflow";
+import { SlidePOC } from "@/components/slides/SlidePOC";
 import { SlideDataHub } from "@/components/slides/SlideDataHub";
 import { SlideLLMEngine } from "@/components/slides/SlideLLMEngine";
 import { SlideDashboard } from "@/components/slides/SlideDashboard";
-import { SlideArchitecture } from "@/components/slides/SlideArchitecture";
-import { SlidePOC } from "@/components/slides/SlidePOC";
-import { SlideExpectedResults } from "@/components/slides/SlideExpectedResults";
+import { SlideNextSteps } from "@/components/slides/SlideNextSteps";
 import { SlideNavigation } from "@/components/SlideNavigation";
 import { SlideOverview } from "@/components/SlideOverview";
 
-const TOTAL_SLIDES = 12;
+const TOTAL_SLIDES = 10;
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -73,13 +71,13 @@ const Index = () => {
       case 2:
         return <SlideCustomerGoals />;
       case 3:
-        return <SlidePainPoints />;
-      case 4:
         return <SlideWhyNow />;
+      case 4:
+        return <SlidePainPoints />;
       case 5:
         return <SlideSolutionOverview />;
       case 6:
-        return <SlideWorkflow />;
+        return <SlidePOC />;
       case 7:
         return <SlideDataHub />;
       case 8:
@@ -87,11 +85,7 @@ const Index = () => {
       case 9:
         return <SlideDashboard />;
       case 10:
-        return <SlideArchitecture />;
-      case 11:
-        return <SlidePOC />;
-      case 12:
-        return <SlideExpectedResults />;
+        return <SlideNextSteps />;
       default:
         return <SlideCover />;
     }

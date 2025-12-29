@@ -1,73 +1,85 @@
 import { SlideLayout } from "./SlideLayout";
-import { TrendingUp, Shield, ArrowUpRight } from "lucide-react";
+import { Target, TrendingDown, Gauge, Settings, Clock } from "lucide-react";
+
 export function SlideWhyNow() {
-  const stats = [{
-    value: "30-50%",
-    label: "다운타임 감소",
-    source: "Industry 4.0"
-  }, {
-    value: "10-30%",
-    label: "처리량 증가",
-    source: "McKinsey"
-  }, {
-    value: "15-30%",
-    label: "노동생산성 개선",
-    source: "제조 벤치마크"
-  }];
-  return <SlideLayout slideNumber={4} totalSlides={12} category="Market">
+  const kpis = [
+    {
+      icon: TrendingDown,
+      title: "불량 PPM 감소",
+      benefit: "클레임 비용 절감, 납품 품질 신뢰도 강화",
+      color: "from-red-500 to-pink-500"
+    },
+    {
+      icon: Target,
+      title: "재작업률 감소",
+      benefit: "직접 원가 절감, 리드타임 단축",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: Gauge,
+      title: "Cpk 향상",
+      benefit: "공정 변동성 축소, 품질 예측 가능성 확보",
+      color: "from-violet-500 to-purple-500"
+    },
+    {
+      icon: Settings,
+      title: "공정 조건 편차 감소",
+      benefit: "레시피/설비 조건 유지로 불량 사전 차단",
+      color: "from-emerald-500 to-green-500"
+    },
+    {
+      icon: Clock,
+      title: "LOT 추적 리드타임 단축",
+      benefit: "원인 규명·격리 속도 개선",
+      color: "from-amber-500 to-orange-500"
+    }
+  ];
+
+  return (
+    <SlideLayout slideNumber={3} totalSlides={10} category="Target KPI">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-6">
-          <span className="badge badge-info mb-3 fade-in-up">Market Timing</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">Polarpulse 도입 시, 제조 현장은 이렇게 변화합니다</h2>
+          <span className="badge badge-info mb-3 fade-in-up">Target KPI</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">목표 KPI</h2>
           <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            정량 근거로 보는 "팩토리 성과" + "리스크"
+            정량적 성과 지표로 측정하는 품질·생산성 개선
           </p>
         </div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-3 gap-6 mb-8 max-w-5xl">
-          {stats.map((stat, index) => <div key={index} className={`p-6 rounded-xl bg-card shadow-card group cursor-pointer fade-in-up stagger-${index + 3}`}>
-              <div className="flex items-start justify-between mb-2">
-                <p className="text-4xl font-bold text-gradient">{stat.value}</p>
-                <ArrowUpRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="grid grid-cols-3 gap-4 max-w-6xl">
+          {kpis.slice(0, 3).map((kpi, index) => (
+            <div 
+              key={index}
+              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`p-2.5 rounded-xl bg-gradient-to-br ${kpi.color}`}>
+                  <kpi.icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-base font-semibold text-foreground">{kpi.title}</h3>
               </div>
-              <p className="text-base font-medium text-foreground">{stat.label}</p>
-              <p className="text-xs text-muted-foreground mt-2">{stat.source}</p>
-            </div>)}
+              <p className="text-sm text-muted-foreground leading-relaxed">{kpi.benefit}</p>
+            </div>
+          ))}
         </div>
 
-        {/* Two columns: Performance + Security */}
-        <div className="grid grid-cols-2 gap-6 max-w-5xl">
-          <div className="p-5 rounded-xl bg-card shadow-card fade-in-up stagger-5">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500">
-                <TrendingUp className="w-5 h-5 text-white" />
+        <div className="grid grid-cols-2 gap-4 max-w-4xl mt-4">
+          {kpis.slice(3).map((kpi, index) => (
+            <div 
+              key={index}
+              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 6}`}
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`p-2.5 rounded-xl bg-gradient-to-br ${kpi.color}`}>
+                  <kpi.icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-base font-semibold text-foreground">{kpi.title}</h3>
               </div>
-              <h3 className="text-base font-semibold text-foreground">Industry 4.0 성과 사례</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{kpi.benefit}</p>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              다운타임 30–50% 감소, throughput 10–30% 증가, 노동생산성 15–30% 개선
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground italic">
-              — McKinsey & Company
-            </p>
-          </div>
-
-          <div className="p-5 rounded-xl bg-card shadow-card fade-in-up stagger-5">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
-              <h3 className="text-base font-semibold text-foreground">OT 보안 필수화</h3>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              제조 현장은 OT 보안·망분리·세그멘테이션 기반 설계가 필수 전제
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground italic">
-              — NIST Publications
-            </p>
-          </div>
+          ))}
         </div>
       </div>
-    </SlideLayout>;
+    </SlideLayout>
+  );
 }
