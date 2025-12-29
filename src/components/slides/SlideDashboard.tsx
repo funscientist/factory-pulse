@@ -1,72 +1,85 @@
 import { SlideLayout } from "./SlideLayout";
-import { AlertTriangle, Search, Settings, Gauge, Users, DollarSign } from "lucide-react";
+import { AlertTriangle, Search, Settings, TrendingDown, Gauge, Target } from "lucide-react";
 
 export function SlideDashboard() {
   const useCases = [
     {
       icon: AlertTriangle,
-      title: "중간 공정 품질 조기 경보",
-      description: "완성품 검수 전 이상 징후 탐지",
+      title: "중요 공정 품질 이상 조기경보",
+      input: "실시간 설비/공정 조건",
+      output: "이상 패턴 예측·알람",
+      action: "선제 점검/조건 수정",
+      kpi: "불량 PPM↓, 재작업률↓",
       color: "from-red-500 to-pink-500"
     },
     {
       icon: Search,
       title: "불량 원인 후보 자동 랭킹",
-      description: "설비/레시피/유틸리티/공정 조건 상관 분석",
+      input: "불량 발생 데이터 + 전 공정 이력",
+      output: "원인 후보 Top-N + 신뢰도",
+      action: "상위 원인부터 집중 개선",
+      kpi: "LOT 추적 리드타임↓, Cpk↑",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Settings,
       title: "다품종 셋업 최적화",
-      description: "유사 조건 검색 + 최적 세팅 추천 (레시피/조건 편차 관리)",
+      input: "제품별 셋업 조건 + 수율/품질",
+      output: "초기 셋업 레시피 추천(가드레일)",
+      action: "셋업 시간 단축, 초기 불량 감소",
+      kpi: "조건편차↓, 재작업률↓",
       color: "from-violet-500 to-purple-500"
-    },
-    {
-      icon: Gauge,
-      title: "공정 병목/비효율 탐지",
-      description: "셋업 타임, 대기, 재작업 패턴 기반 개선 포인트 제시",
-      color: "from-emerald-500 to-green-500"
-    },
-    {
-      icon: Users,
-      title: "C-Level 대시보드",
-      description: "품질 리스크·생산성·납기 영향 요인 Top-N + 실행 결과 추적",
-      color: "from-amber-500 to-orange-500"
-    },
-    {
-      icon: DollarSign,
-      title: "(옵션) Cost-to-Operate 연결",
-      description: "불량/다운타임이 비용·마진에 미치는 영향까지 확장",
-      color: "from-slate-500 to-gray-500"
     }
   ];
 
   return (
-    <SlideLayout slideNumber={9} totalSlides={12} category="Use Cases" variant="gray">
+    <SlideLayout slideNumber={9} totalSlides={10} category="Use Cases" variant="gray">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
-          <span className="badge badge-info mb-3 fade-in-up">Core Use Cases</span>
+          <span className="badge badge-info mb-3 fade-in-up">Priority PoC Cases</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            핵심 Use Case
+            적용 사례 (우선순위 PoC)
           </h2>
-          <p className="mt-2 text-base text-muted-foreground fade-in-up stagger-2">
-            제조 특화 AIOps 적용 영역
-          </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 max-w-6xl">
+        <div className="grid grid-cols-3 gap-5 max-w-6xl">
           {useCases.map((useCase, index) => (
             <div 
               key={index}
-              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-4">
                 <div className={`p-2.5 rounded-xl bg-gradient-to-br ${useCase.color}`}>
                   <useCase.icon className="w-5 h-5 text-white" />
                 </div>
+                <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">
+                  {index + 1}
+                </span>
               </div>
-              <h3 className="text-sm font-semibold text-foreground mb-2">{useCase.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{useCase.description}</p>
+              
+              <h3 className="text-sm font-semibold text-foreground mb-3">{useCase.title}</h3>
+              
+              <div className="space-y-2 text-xs">
+                <div>
+                  <span className="text-muted-foreground">입력: </span>
+                  <span className="text-foreground">{useCase.input}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">산출: </span>
+                  <span className="text-foreground">{useCase.output}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">조치: </span>
+                  <span className="text-foreground">{useCase.action}</span>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-border">
+                <div className="flex items-center gap-2">
+                  <Target className="w-4 h-4 text-primary" />
+                  <span className="text-xs font-semibold text-primary">{useCase.kpi}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
