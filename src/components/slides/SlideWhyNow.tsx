@@ -18,7 +18,7 @@ export function SlideWhyNow() {
       <div className="flex flex-col justify-center h-full">
         <div className="mb-6">
           <span className="badge badge-info mb-3 fade-in-up">Market Timing</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">Market</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">제조 혁신의 두 가지 조건 (Performance & Security)</h2>
           <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
             정량 근거로 보는 "팩토리 성과" + "리스크"
           </p>
