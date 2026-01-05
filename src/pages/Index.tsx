@@ -36,7 +36,7 @@ const Index = () => {
       if (slide === 1) {
         navigate("/");
       } else {
-        navigate(`/page${slide}`);
+        navigate(`/page/${slide}`);
       }
     }
   }, [navigate]);
