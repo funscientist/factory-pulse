@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { SlideCover } from "@/components/slides/SlideCover";
 import { SlideCustomerGoals } from "@/components/slides/SlideCustomerGoals";
 import { SlideWhyNow } from "@/components/slides/SlideWhyNow";
@@ -15,14 +16,30 @@ import { SlideOverview } from "@/components/SlideOverview";
 const TOTAL_SLIDES = 10;
 
 const Index = () => {
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const { slideNumber } = useParams();
+  const navigate = useNavigate();
+  
+  const getInitialSlide = () => {
+    if (slideNumber) {
+      const num = parseInt(slideNumber, 10);
+      if (num >= 1 && num <= TOTAL_SLIDES) return num;
+    }
+    return 1;
+  };
+
+  const [currentSlide, setCurrentSlide] = useState(getInitialSlide);
   const [showOverview, setShowOverview] = useState(false);
 
   const navigateToSlide = useCallback((slide: number) => {
     if (slide >= 1 && slide <= TOTAL_SLIDES) {
       setCurrentSlide(slide);
+      if (slide === 1) {
+        navigate("/");
+      } else {
+        navigate(`/page${slide}`);
+      }
     }
-  }, []);
+  }, [navigate]);
 
   // Keyboard navigation
   useEffect(() => {
