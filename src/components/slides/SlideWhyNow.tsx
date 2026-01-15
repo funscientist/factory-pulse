@@ -1,81 +1,103 @@
 import { SlideLayout } from "./SlideLayout";
-import { Target, TrendingDown, Gauge, Settings, Clock } from "lucide-react";
+import { HelpCircle, Database, Brain, LayoutDashboard } from "lucide-react";
 
 export function SlideWhyNow() {
-  const kpis = [
+  const steps = [
     {
-      icon: TrendingDown,
-      title: "불량 PPM 감소",
-      benefit: "클레임 비용 절감, 납품 품질 신뢰도 강화",
-      color: "from-red-500 to-pink-500"
-    },
-    {
-      icon: Target,
-      title: "재작업률 감소",
-      benefit: "직접 원가 절감, 리드타임 단축",
+      number: "01",
+      icon: HelpCircle,
+      title: "요구사항/질문 추출",
+      items: [
+        '"지금 가장 위험한 이벤트는?" "왜 위험한가?" "무엇을 해야 하나?"',
+        "정책/감사/운영 질문을 표준 쿼리 템플릿으로 변환"
+      ],
       color: "from-blue-500 to-cyan-500"
     },
     {
-      icon: Gauge,
-      title: "Cpk 향상",
-      benefit: "공정 변동성 축소, 품질 예측 가능성 확보",
+      number: "02",
+      icon: Database,
+      title: "데이터 수집·정규화",
+      items: [
+        "SIEM/EDR/NDR/Cloud/SaaS/IAM/취약점/자산 연동",
+        "공통 스키마로 정리(시간/사용자/자산/행위/정책 기준)"
+      ],
       color: "from-violet-500 to-purple-500"
     },
     {
-      icon: Settings,
-      title: "공정 조건 편차 감소",
-      benefit: "레시피/설비 조건 유지로 불량 사전 차단",
+      number: "03",
+      icon: Brain,
+      title: "Evidence 분석 + LLM 리포팅",
+      items: [
+        "사건 클러스터링, 우선순위, 영향범위(Blast radius) 추정",
+        "사건 요약/타임라인/권고조치/근거를 자동 생성"
+      ],
       color: "from-emerald-500 to-green-500"
     },
     {
-      icon: Clock,
-      title: "LOT 추적 리드타임 단축",
-      benefit: "원인 규명·격리 속도 개선",
+      number: "04",
+      icon: LayoutDashboard,
+      title: "대시보드 + 실행 추적",
+      items: [
+        "티켓/런북 연계, 조치 완료/재발 방지 검증",
+        "동일 유형 사건의 재발 방지 룰/정책으로 환류(Closed loop)"
+      ],
       color: "from-amber-500 to-orange-500"
     }
   ];
 
+  const dashboards = [
+    {
+      title: "CISO Dashboard",
+      items: "KRI/통제 커버리지/감사 증빙/리스크 추세"
+    },
+    {
+      title: "SOC Dashboard", 
+      items: "실시간 경보/우선순위/증거팩/조치 체크리스트"
+    }
+  ];
+
   return (
-    <SlideLayout slideNumber={3} totalSlides={10} category="Target KPI">
+    <SlideLayout slideNumber={5} totalSlides={9} category="End-to-End Workflow">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-6">
-          <span className="badge badge-info mb-3 fade-in-up">Target KPI</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">목표 KPI</h2>
-          <p className="mt-2 text-base text-muted-foreground max-w-2xl fade-in-up stagger-2">
-            정량적 성과 지표로 측정하는 품질·생산성 개선
-          </p>
+        <div className="mb-5">
+          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-green-500 text-white text-sm font-semibold shadow-md mb-3 fade-in-up">
+            Workflow
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">4단계 자동화 흐름</h2>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 max-w-6xl">
-          {kpis.slice(0, 3).map((kpi, index) => (
+        <div className="grid grid-cols-4 gap-4 max-w-6xl mb-5">
+          {steps.map((step, index) => (
             <div 
               key={index}
-              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
             >
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`p-2.5 rounded-xl bg-gradient-to-br ${kpi.color}`}>
-                  <kpi.icon className="w-5 h-5 text-white" />
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`text-lg font-bold bg-gradient-to-br ${step.color} bg-clip-text text-transparent`}>
+                  {step.number}
+                </span>
+                <div className={`p-2 rounded-lg bg-gradient-to-br ${step.color}`}>
+                  <step.icon className="w-4 h-4 text-white" />
                 </div>
-                <h3 className="text-base font-semibold text-foreground">{kpi.title}</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{kpi.benefit}</p>
+              <h3 className="text-sm font-semibold text-foreground mb-2">{step.title}</h3>
+              <ul className="space-y-1">
+                {step.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="text-xs text-muted-foreground">
+                    • {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-4 max-w-4xl mt-4">
-          {kpis.slice(3).map((kpi, index) => (
-            <div 
-              key={index}
-              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 6}`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`p-2.5 rounded-xl bg-gradient-to-br ${kpi.color}`}>
-                  <kpi.icon className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground">{kpi.title}</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{kpi.benefit}</p>
+        {/* Dashboard output */}
+        <div className="grid grid-cols-2 gap-4 max-w-4xl fade-in-up stagger-6">
+          {dashboards.map((dashboard, index) => (
+            <div key={index} className="p-4 rounded-xl bg-secondary">
+              <h4 className="text-sm font-semibold text-foreground mb-1">{dashboard.title}</h4>
+              <p className="text-xs text-muted-foreground">{dashboard.items}</p>
             </div>
           ))}
         </div>
