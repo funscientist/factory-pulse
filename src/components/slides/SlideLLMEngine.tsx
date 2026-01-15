@@ -1,79 +1,115 @@
 import { SlideLayout } from "./SlideLayout";
-import { Shield, Server, Key, FileCheck, Users, Eye, Lock, CheckCircle2 } from "lucide-react";
+import { Shield, Server, Key, FileCheck, Users, Eye, Lock, Network, Database, Workflow } from "lucide-react";
 
 export function SlideLLMEngine() {
-  const securityItems = [
+  const principles = [
     {
       icon: Server,
-      title: "원천 데이터",
-      description: "온프렘 저장/처리 (기본)"
+      title: "원천 데이터 사내 고정",
+      description: "로그/이벤트/계정정보 외부 반출 최소화"
     },
     {
       icon: FileCheck,
-      title: "외부 전송 (필요 시)",
-      description: "비식별/집계/피처 데이터만 최소 전송"
+      title: "정책 기반 전송 통제",
+      description: "필요 시 비식별/요약/피처만 제한 전송"
     },
     {
       icon: Key,
-      title: "암호화/키관리",
-      description: "고객 KMS 옵션, 전송·저장 암호화"
-    },
-    {
-      icon: Users,
-      title: "접근통제",
-      description: "RBAC, 계정 분리(운영/분석/승인), MFA 옵션"
-    },
-    {
-      icon: Eye,
-      title: "감사로그",
-      description: "조회/다운로드/권한 변경/모델 실행 기록"
-    },
-    {
-      icon: Lock,
-      title: "모델 학습",
-      description: "고객 데이터 기반 범용 학습 금지(기본), 사전 합의 시 예외"
+      title: "허용목록 + 감사로그 + 키관리",
+      description: "누가/언제/무엇을/왜 조회했는지 재현"
     }
   ];
 
+  const llmControls = [
+    "프롬프트/출력 DLP, 민감정보 Redaction",
+    '사건 리포트에 "근거(로그 포인트)"를 강제 삽입 → 감사 추적성 강화',
+    "모델 접근은 Zero Trust 원칙으로 최소권한 적용"
+  ];
+
+  const irItems = [
+    "IR 단계/역할/커뮤니케이션을 표준 템플릿으로 내재화",
+    "CSF 2.0의 Detect/Respond/Recover 정렬 지표 제공"
+  ];
+
+  const checklist = [
+    { icon: Network, title: "네트워크 분리/세그멘테이션" },
+    { icon: Lock, title: "접근 통제 & 암호화" },
+    { icon: Database, title: "데이터 레지던시/보관주기" },
+    { icon: Key, title: "감사 로그 & 키 관리" },
+    { icon: Workflow, title: "사고대응 워크플로우/증거팩 자동화" },
+    { icon: Eye, title: "모델 거버넌스(프롬프트/출력/권한)" }
+  ];
+
   return (
-    <SlideLayout slideNumber={8} totalSlides={10} category="Security">
+    <SlideLayout slideNumber={7} totalSlides={9} category="Security & Compliance">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-4">
-          <span className="badge badge-warning mb-2 fade-in-up">Security & Residency</span>
+          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-semibold shadow-md mb-2 fade-in-up">
+            Security
+          </span>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground fade-in-up stagger-1">
-            보안·레지던시
+            PolarPulse 보안 설계
           </h2>
         </div>
 
         <div className="grid grid-cols-3 gap-4 max-w-6xl mb-4">
-          {securityItems.map((item, index) => (
-            <div 
-              key={index}
-              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
-            >
-              <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 shrink-0">
-                  <item.icon className="w-4 h-4 text-white" />
+          {/* Core Principles */}
+          <div className="p-4 rounded-xl bg-card shadow-card fade-in-up stagger-2">
+            <h3 className="text-sm font-semibold text-foreground mb-3">핵심 보안 원칙</h3>
+            <div className="space-y-3">
+              {principles.map((item, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <div className="p-1.5 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 shrink-0">
+                    <item.icon className="w-3 h-3 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-foreground">{item.title}</p>
+                    <p className="text-xs text-muted-foreground">{item.description}</p>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <h4 className="text-sm font-semibold text-foreground mb-1">{item.title}</h4>
-                  <p className="text-xs text-muted-foreground">{item.description}</p>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* LLM Controls */}
+          <div className="p-4 rounded-xl bg-card shadow-card fade-in-up stagger-3">
+            <h3 className="text-sm font-semibold text-foreground mb-3">LLM 사용을 위한 추가 통제</h3>
+            <ul className="space-y-2">
+              {llmControls.map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-xs text-muted-foreground">
+                  <span className="text-primary mt-0.5">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* IR Alignment */}
+          <div className="p-4 rounded-xl bg-card shadow-card fade-in-up stagger-4">
+            <h3 className="text-sm font-semibold text-foreground mb-3">Incident Response 정렬</h3>
+            <ul className="space-y-2">
+              {irItems.map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-xs text-muted-foreground">
+                  <span className="text-primary mt-0.5">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Full on-prem option */}
-        <div className="p-4 rounded-xl bg-secondary max-w-6xl fade-in-up stagger-7">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-violet-500 to-purple-500">
-              <Shield className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-foreground">완전 온프렘 옵션</h4>
-              <p className="text-xs text-muted-foreground">클라우드 불가 정책 시 분석/LLM까지 내부망 구축 가능</p>
-            </div>
+        {/* Security Checklist */}
+        <div className="p-4 rounded-xl bg-secondary max-w-6xl fade-in-up stagger-5">
+          <h3 className="text-sm font-semibold text-foreground mb-3">보안 체크리스트</h3>
+          <div className="grid grid-cols-6 gap-3">
+            {checklist.map((item, index) => (
+              <div key={index} className="flex flex-col items-center gap-1 text-center">
+                <div className="p-2 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500">
+                  <item.icon className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-xs text-muted-foreground">{item.title}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

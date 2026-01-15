@@ -1,83 +1,74 @@
 import { SlideLayout } from "./SlideLayout";
-import { AlertTriangle, Search, Settings, TrendingDown, Gauge, Target } from "lucide-react";
+import { Bell, FileText, Search, Users, Cloud, DollarSign } from "lucide-react";
 
 export function SlideDashboard() {
   const useCases = [
     {
-      icon: AlertTriangle,
-      title: "중요 공정 품질 이상 조기경보",
-      input: "실시간 설비/공정 조건",
-      output: "이상 패턴 예측·알람",
-      action: "선제 점검/조건 수정",
-      kpi: "불량 PPM↓, 재작업률↓",
-      color: "from-red-500 to-pink-500"
-    },
-    {
-      icon: Search,
-      title: "불량 원인 후보 자동 랭킹",
-      input: "불량 발생 데이터 + 전 공정 이력",
-      output: "원인 후보 Top-N + 신뢰도",
-      action: "상위 원인부터 집중 개선",
-      kpi: "LOT 추적 리드타임↓, Cpk↑",
+      icon: Bell,
+      title: "SOC Alert Triage 자동화",
+      description: "알림 묶음(클러스터) + 우선순위 + \"왜 위험한지\" 근거 제공",
       color: "from-blue-500 to-cyan-500"
     },
     {
-      icon: Settings,
-      title: "다품종 셋업 최적화",
-      input: "제품별 셋업 조건 + 수율/품질",
-      output: "초기 셋업 레시피 추천(가드레일)",
-      action: "셋업 시간 단축, 초기 불량 감소",
-      kpi: "조건편차↓, 재작업률↓",
+      icon: FileText,
+      title: "침해사고(Incident) 타임라인·리포트 자동 생성",
+      description: "사건 개요/영향/확산경로/권고조치/재발 방지까지 한 번에",
       color: "from-violet-500 to-purple-500"
+    },
+    {
+      icon: Search,
+      title: "Threat Hunting / 이상행동 탐지",
+      description: "계정·자산·네트워크·클라우드 이벤트를 상관분석하여 탐지 범위 확장",
+      color: "from-emerald-500 to-green-500"
+    },
+    {
+      icon: Users,
+      title: "IAM/권한 리스크 모니터링",
+      description: "과다권한/이상 로그인/권한 변경 추적 → 내부자 리스크 대응",
+      color: "from-amber-500 to-orange-500"
+    },
+    {
+      icon: Cloud,
+      title: "클라우드·SaaS 보안 준수 점검",
+      description: "정책 위반 탐지 + 우선순위 + 조치 권고(티켓/런북 연계)",
+      color: "from-pink-500 to-rose-500"
+    },
+    {
+      icon: DollarSign,
+      title: "(옵션) Cost-to-Operate / Risk-to-ROI 연결",
+      description: "보안 운영 비용 vs 리스크 노출(사건·통제 수준) 연결해 투자 우선순위 제시",
+      color: "from-indigo-500 to-blue-500"
     }
   ];
 
   return (
-    <SlideLayout slideNumber={9} totalSlides={10} category="Use Cases" variant="gray">
+    <SlideLayout slideNumber={8} totalSlides={9} category="Use Cases">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
-          <span className="badge badge-info mb-3 fade-in-up">Priority PoC Cases</span>
+          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-sm font-semibold shadow-md mb-3 fade-in-up">
+            Core Use Cases
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
-            적용 사례 (우선순위 PoC)
+            핵심 Use Case
           </h2>
+          <p className="mt-2 text-base text-muted-foreground fade-in-up stagger-2">
+            보안 특화 적용 영역
+          </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-5 max-w-6xl">
+        <div className="grid grid-cols-3 gap-4 max-w-6xl">
           {useCases.map((useCase, index) => (
             <div 
               key={index}
-              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
+              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`p-2.5 rounded-xl bg-gradient-to-br ${useCase.color}`}>
-                  <useCase.icon className="w-5 h-5 text-white" />
+              <div className="flex items-start gap-3">
+                <div className={`p-2 rounded-lg bg-gradient-to-br ${useCase.color} shadow-lg shrink-0`}>
+                  <useCase.icon className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-1 rounded">
-                  {index + 1}
-                </span>
-              </div>
-              
-              <h3 className="text-sm font-semibold text-foreground mb-3">{useCase.title}</h3>
-              
-              <div className="space-y-2 text-xs">
-                <div>
-                  <span className="text-muted-foreground">입력: </span>
-                  <span className="text-foreground">{useCase.input}</span>
-                </div>
-                <div>
-                  <span className="text-muted-foreground">산출: </span>
-                  <span className="text-foreground">{useCase.output}</span>
-                </div>
-                <div>
-                  <span className="text-muted-foreground">조치: </span>
-                  <span className="text-foreground">{useCase.action}</span>
-                </div>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-border">
-                <div className="flex items-center gap-2">
-                  <Target className="w-4 h-4 text-primary" />
-                  <span className="text-xs font-semibold text-primary">{useCase.kpi}</span>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-semibold text-foreground mb-1">{useCase.title}</h3>
+                  <p className="text-xs text-muted-foreground">{useCase.description}</p>
                 </div>
               </div>
             </div>

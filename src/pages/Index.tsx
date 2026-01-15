@@ -5,15 +5,14 @@ import { SlideCustomerGoals } from "@/components/slides/SlideCustomerGoals";
 import { SlideWhyNow } from "@/components/slides/SlideWhyNow";
 import { SlidePainPoints } from "@/components/slides/SlidePainPoints";
 import { SlideSolutionOverview } from "@/components/slides/SlideSolutionOverview";
-import { SlidePOC } from "@/components/slides/SlidePOC";
 import { SlideDataHub } from "@/components/slides/SlideDataHub";
 import { SlideLLMEngine } from "@/components/slides/SlideLLMEngine";
 import { SlideDashboard } from "@/components/slides/SlideDashboard";
-import { SlideNextSteps } from "@/components/slides/SlideNextSteps";
+import { SlideQnA } from "@/components/slides/SlideQnA";
 import { SlideNavigation } from "@/components/SlideNavigation";
 import { SlideOverview } from "@/components/SlideOverview";
 
-const TOTAL_SLIDES = 10;
+const TOTAL_SLIDES = 9;
 
 const Index = () => {
   const { slideNumber } = useParams();
@@ -88,21 +87,19 @@ const Index = () => {
       case 2:
         return <SlideCustomerGoals />;
       case 3:
-        return <SlideWhyNow />;
-      case 4:
         return <SlidePainPoints />;
-      case 5:
+      case 4:
         return <SlideSolutionOverview />;
+      case 5:
+        return <SlideWhyNow />;
       case 6:
-        return <SlidePOC />;
-      case 7:
         return <SlideDataHub />;
-      case 8:
+      case 7:
         return <SlideLLMEngine />;
-      case 9:
+      case 8:
         return <SlideDashboard />;
-      case 10:
-        return <SlideNextSteps />;
+      case 9:
+        return <SlideQnA />;
       default:
         return <SlideCover />;
     }
