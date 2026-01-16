@@ -3,7 +3,7 @@ import { Shield, Database, Zap, ArrowRight } from "lucide-react";
 
 export function SlideCover() {
   return (
-    <SlideLayout slideNumber={1} totalSlides={9} variant="hero">
+    <SlideLayout slideNumber={1} totalSlides={10} variant="hero">
       <div className="flex flex-col justify-center h-full">
         {/* Main headline */}
         <div className="max-w-5xl">

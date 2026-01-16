@@ -15,7 +15,7 @@ export function SlideDataHub() {
   ];
 
   return (
-    <SlideLayout slideNumber={6} totalSlides={9} category="Architecture">
+    <SlideLayout slideNumber={7} totalSlides={10} category="Architecture">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-6">
           <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-base font-semibold shadow-md mb-4 fade-in-up">

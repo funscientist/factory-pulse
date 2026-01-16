@@ -42,7 +42,7 @@ export function SlideDashboard() {
   ];
 
   return (
-    <SlideLayout slideNumber={8} totalSlides={9} category="Use Cases">
+    <SlideLayout slideNumber={9} totalSlides={10} category="Use Cases">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-6">
           <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-base font-semibold shadow-md mb-4 fade-in-up">
