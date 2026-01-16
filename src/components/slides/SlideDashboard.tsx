@@ -44,31 +44,31 @@ export function SlideDashboard() {
   return (
     <SlideLayout slideNumber={8} totalSlides={9} category="Use Cases">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-5">
-          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-sm font-semibold shadow-md mb-3 fade-in-up">
+        <div className="mb-6">
+          <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-base font-semibold shadow-md mb-4 fade-in-up">
             Core Use Cases
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground fade-in-up stagger-1">
             핵심 Use Case
           </h2>
-          <p className="mt-2 text-base text-muted-foreground fade-in-up stagger-2">
+          <p className="mt-3 text-lg text-muted-foreground fade-in-up stagger-2">
             보안 특화 적용 영역
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 max-w-6xl">
+        <div className="grid grid-cols-3 gap-5">
           {useCases.map((useCase, index) => (
             <div 
               key={index}
-              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="flex items-start gap-3">
-                <div className={`p-2 rounded-lg bg-gradient-to-br ${useCase.color} shadow-lg shrink-0`}>
-                  <useCase.icon className="w-4 h-4 text-white" />
+              <div className="flex items-start gap-4">
+                <div className={`p-3 rounded-lg bg-gradient-to-br ${useCase.color} shadow-lg shrink-0`}>
+                  <useCase.icon className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-semibold text-foreground mb-1">{useCase.title}</h3>
-                  <p className="text-xs text-muted-foreground">{useCase.description}</p>
+                  <h3 className="text-base font-semibold text-foreground mb-2">{useCase.title}</h3>
+                  <p className="text-sm text-muted-foreground">{useCase.description}</p>
                 </div>
               </div>
             </div>

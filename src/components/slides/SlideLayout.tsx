@@ -41,7 +41,7 @@ export function SlideLayout({
           {/* Header */}
           <header className="flex items-center justify-between px-8 py-4">
             <div className="flex items-center gap-3">
-              <span className={`font-bold text-lg tracking-tight ${variant === "hero" || variant === "cta" ? "text-white" : "text-primary"}`}>PolarPulse X Baron Tech</span>
+              <span className={`font-bold text-lg tracking-tight ${variant === "hero" || variant === "cta" ? "text-white" : "text-primary"}`}>PolarPulse</span>
               {category && <>
                   <span className={getTextClass()}>/</span>
                   <span className={`text-xs ${getTextClass()}`}>{category}</span>
@@ -53,7 +53,7 @@ export function SlideLayout({
           </header>
 
           {/* Main content */}
-          <main className="flex-1 px-10 pb-4 overflow-hidden">
+          <main className="flex-1 px-12 pb-6 overflow-hidden">
             {children}
           </main>
         </div>

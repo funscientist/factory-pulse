@@ -43,28 +43,28 @@ export function SlideLLMEngine() {
   return (
     <SlideLayout slideNumber={7} totalSlides={9} category="Security & Compliance">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-4">
-          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-semibold shadow-md mb-2 fade-in-up">
+        <div className="mb-5">
+          <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white text-base font-semibold shadow-md mb-3 fade-in-up">
             Security
           </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground fade-in-up stagger-1">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
             PolarPulse 보안 설계
           </h2>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 max-w-6xl mb-4">
+        <div className="grid grid-cols-3 gap-5 mb-5">
           {/* Core Principles */}
-          <div className="p-4 rounded-xl bg-card shadow-card fade-in-up stagger-2">
-            <h3 className="text-sm font-semibold text-foreground mb-3">핵심 보안 원칙</h3>
-            <div className="space-y-3">
+          <div className="p-5 rounded-xl bg-card shadow-card fade-in-up stagger-2">
+            <h3 className="text-base font-semibold text-foreground mb-4">핵심 보안 원칙</h3>
+            <div className="space-y-4">
               {principles.map((item, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <div className="p-1.5 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 shrink-0">
-                    <item.icon className="w-3 h-3 text-white" />
+                <div key={index} className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 shrink-0">
+                    <item.icon className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-foreground">{item.title}</p>
-                    <p className="text-xs text-muted-foreground">{item.description}</p>
+                    <p className="text-sm font-medium text-foreground">{item.title}</p>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -72,11 +72,11 @@ export function SlideLLMEngine() {
           </div>
 
           {/* LLM Controls */}
-          <div className="p-4 rounded-xl bg-card shadow-card fade-in-up stagger-3">
-            <h3 className="text-sm font-semibold text-foreground mb-3">LLM 사용을 위한 추가 통제</h3>
-            <ul className="space-y-2">
+          <div className="p-5 rounded-xl bg-card shadow-card fade-in-up stagger-3">
+            <h3 className="text-base font-semibold text-foreground mb-4">LLM 사용을 위한 추가 통제</h3>
+            <ul className="space-y-3">
               {llmControls.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-xs text-muted-foreground">
+                <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
                   <span className="text-primary mt-0.5">•</span>
                   <span>{item}</span>
                 </li>
@@ -85,11 +85,11 @@ export function SlideLLMEngine() {
           </div>
 
           {/* IR Alignment */}
-          <div className="p-4 rounded-xl bg-card shadow-card fade-in-up stagger-4">
-            <h3 className="text-sm font-semibold text-foreground mb-3">Incident Response 정렬</h3>
-            <ul className="space-y-2">
+          <div className="p-5 rounded-xl bg-card shadow-card fade-in-up stagger-4">
+            <h3 className="text-base font-semibold text-foreground mb-4">Incident Response 정렬</h3>
+            <ul className="space-y-3">
               {irItems.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-xs text-muted-foreground">
+                <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
                   <span className="text-primary mt-0.5">•</span>
                   <span>{item}</span>
                 </li>
@@ -99,15 +99,15 @@ export function SlideLLMEngine() {
         </div>
 
         {/* Security Checklist */}
-        <div className="p-4 rounded-xl bg-secondary max-w-6xl fade-in-up stagger-5">
-          <h3 className="text-sm font-semibold text-foreground mb-3">보안 체크리스트</h3>
-          <div className="grid grid-cols-6 gap-3">
+        <div className="p-5 rounded-xl bg-secondary fade-in-up stagger-5">
+          <h3 className="text-base font-semibold text-foreground mb-4">보안 체크리스트</h3>
+          <div className="grid grid-cols-6 gap-4">
             {checklist.map((item, index) => (
-              <div key={index} className="flex flex-col items-center gap-1 text-center">
-                <div className="p-2 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500">
-                  <item.icon className="w-4 h-4 text-white" />
+              <div key={index} className="flex flex-col items-center gap-2 text-center">
+                <div className="p-3 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500">
+                  <item.icon className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xs text-muted-foreground">{item.title}</span>
+                <span className="text-sm text-muted-foreground">{item.title}</span>
               </div>
             ))}
           </div>

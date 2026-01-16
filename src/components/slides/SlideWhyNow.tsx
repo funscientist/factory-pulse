@@ -59,31 +59,31 @@ export function SlideWhyNow() {
   return (
     <SlideLayout slideNumber={5} totalSlides={9} category="End-to-End Workflow">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-5">
-          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-green-500 text-white text-sm font-semibold shadow-md mb-3 fade-in-up">
+        <div className="mb-6">
+          <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-emerald-500 to-green-500 text-white text-base font-semibold shadow-md mb-4 fade-in-up">
             Workflow
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">4단계 자동화 흐름</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground fade-in-up stagger-1">4단계 자동화 흐름</h2>
         </div>
 
-        <div className="grid grid-cols-4 gap-4 max-w-6xl mb-5">
+        <div className="grid grid-cols-4 gap-5 mb-6">
           {steps.map((step, index) => (
             <div 
               key={index}
-              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
+              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
             >
-              <div className="flex items-center gap-2 mb-3">
-                <span className={`text-lg font-bold bg-gradient-to-br ${step.color} bg-clip-text text-transparent`}>
+              <div className="flex items-center gap-3 mb-4">
+                <span className={`text-2xl font-bold bg-gradient-to-br ${step.color} bg-clip-text text-transparent`}>
                   {step.number}
                 </span>
-                <div className={`p-2 rounded-lg bg-gradient-to-br ${step.color}`}>
-                  <step.icon className="w-4 h-4 text-white" />
+                <div className={`p-3 rounded-lg bg-gradient-to-br ${step.color}`}>
+                  <step.icon className="w-5 h-5 text-white" />
                 </div>
               </div>
-              <h3 className="text-sm font-semibold text-foreground mb-2">{step.title}</h3>
-              <ul className="space-y-1">
+              <h3 className="text-base font-semibold text-foreground mb-3">{step.title}</h3>
+              <ul className="space-y-2">
                 {step.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="text-xs text-muted-foreground">
+                  <li key={itemIndex} className="text-sm text-muted-foreground">
                     • {item}
                   </li>
                 ))}
@@ -93,11 +93,11 @@ export function SlideWhyNow() {
         </div>
 
         {/* Dashboard output */}
-        <div className="grid grid-cols-2 gap-4 max-w-4xl fade-in-up stagger-6">
+        <div className="grid grid-cols-2 gap-5 fade-in-up stagger-6">
           {dashboards.map((dashboard, index) => (
-            <div key={index} className="p-4 rounded-xl bg-secondary">
-              <h4 className="text-sm font-semibold text-foreground mb-1">{dashboard.title}</h4>
-              <p className="text-xs text-muted-foreground">{dashboard.items}</p>
+            <div key={index} className="p-5 rounded-xl bg-secondary">
+              <h4 className="text-base font-semibold text-foreground mb-2">{dashboard.title}</h4>
+              <p className="text-sm text-muted-foreground">{dashboard.items}</p>
             </div>
           ))}
         </div>

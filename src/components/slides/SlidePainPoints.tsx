@@ -56,54 +56,54 @@ export function SlidePainPoints() {
   return (
     <SlideLayout slideNumber={3} totalSlides={9} category="Problem">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-5">
-          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-red-500 to-pink-500 text-white text-sm font-semibold shadow-md mb-3 fade-in-up">
+        <div className="mb-6">
+          <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-red-500 to-pink-500 text-white text-base font-semibold shadow-md mb-4 fade-in-up">
             Pain Points
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground fade-in-up stagger-1">
             데이터는 쌓이지만, 위협은 사라지지 않습니다
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 max-w-6xl">
+        <div className="grid grid-cols-2 gap-5">
           {painPoints.slice(0, 2).map((point, index) => (
             <div 
               key={index}
-              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
+              className={`p-6 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 2}`}
             >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-gradient-to-br from-red-500 to-pink-500 shadow-lg shrink-0">
-                  <point.icon className="w-5 h-5 text-white" />
+                  <point.icon className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex items-center gap-2 mb-2">
                     {getSeverityBadge(point.severity)}
-                    <h3 className="text-sm font-semibold text-foreground">{point.title}</h3>
+                    <h3 className="text-base font-semibold text-foreground">{point.title}</h3>
                   </div>
                   <p className="text-sm text-muted-foreground">{point.description}</p>
-                  <p className="text-xs text-muted-foreground/80 mt-1">{point.detail}</p>
+                  <p className="text-sm text-muted-foreground/80 mt-1">{point.detail}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-3 gap-4 max-w-6xl mt-4">
+        <div className="grid grid-cols-3 gap-5 mt-5">
           {painPoints.slice(2).map((point, index) => (
             <div 
               key={index}
-              className={`p-4 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 4}`}
+              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 4}`}
             >
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 shadow-lg shrink-0">
-                  <point.icon className="w-4 h-4 text-white" />
+                <div className="p-3 rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 shadow-lg shrink-0">
+                  <point.icon className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
                     {getSeverityBadge(point.severity)}
                   </div>
-                  <h3 className="text-xs font-semibold text-foreground mb-1">{point.title}</h3>
-                  <p className="text-xs text-muted-foreground">{point.description}</p>
+                  <h3 className="text-sm font-semibold text-foreground mb-1">{point.title}</h3>
+                  <p className="text-sm text-muted-foreground">{point.description}</p>
                 </div>
               </div>
             </div>
