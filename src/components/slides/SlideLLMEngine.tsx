@@ -41,7 +41,7 @@ export function SlideLLMEngine() {
   ];
 
   return (
-    <SlideLayout slideNumber={7} totalSlides={9} category="Security & Compliance">
+    <SlideLayout slideNumber={8} totalSlides={10} category="Security & Compliance">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-5">
           <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white text-base font-semibold shadow-md mb-3 fade-in-up">

@@ -3,7 +3,7 @@ import { MessageCircle, Mail, Globe } from "lucide-react";
 
 export function SlideQnA() {
   return (
-    <SlideLayout slideNumber={9} totalSlides={9} variant="hero">
+    <SlideLayout slideNumber={10} totalSlides={10} variant="hero">
       <div className="flex flex-col justify-center items-center h-full text-center">
         <div className="max-w-4xl">
           <div className="fade-in-up">

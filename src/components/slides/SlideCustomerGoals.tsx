@@ -34,7 +34,7 @@ export function SlideCustomerGoals() {
   ];
 
   return (
-    <SlideLayout slideNumber={2} totalSlides={9} category="Executive Summary">
+    <SlideLayout slideNumber={2} totalSlides={10} category="Executive Summary">
       <div className="flex flex-col justify-center h-full">
         <div className="mb-8">
           <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-base font-semibold shadow-md mb-4 fade-in-up">
