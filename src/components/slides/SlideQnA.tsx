@@ -13,23 +13,23 @@ export function SlideQnA() {
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 fade-in-up stagger-1">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-10 fade-in-up stagger-1">
             Q&A
           </h1>
           
-          <p className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto fade-in-up stagger-2">
+          <p className="text-xl md:text-2xl text-white/80 mb-14 max-w-3xl mx-auto fade-in-up stagger-2">
             경영진의 '보안 질문'이 회사의 '리스크 방어 전략'이 되는 미래,
             <br />
             PolarPulse와 함께 하십시오.
           </p>
 
-          <div className="flex flex-col items-center gap-4 fade-in-up stagger-3">
-            <div className="flex items-center gap-3 text-white/80">
-              <Mail className="w-5 h-5" />
+          <div className="flex flex-col items-center gap-5 fade-in-up stagger-3">
+            <div className="flex items-center gap-4 text-white/80 text-lg">
+              <Mail className="w-6 h-6" />
               <span>contact@polarpulse.ai</span>
             </div>
-            <div className="flex items-center gap-3 text-white/80">
-              <Globe className="w-5 h-5" />
+            <div className="flex items-center gap-4 text-white/80 text-lg">
+              <Globe className="w-6 h-6" />
               <a href="https://polarpulse.ai" className="hover:text-white transition-colors">
                 https://polarpulse.ai
               </a>

@@ -40,34 +40,34 @@ export function SlideSolutionOverview() {
   return (
     <SlideLayout slideNumber={4} totalSlides={9} category="Solution Architecture">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-5">
-          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-violet-500 to-purple-500 text-white text-sm font-semibold shadow-md mb-3 fade-in-up">
+        <div className="mb-6">
+          <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-violet-500 to-purple-500 text-white text-base font-semibold shadow-md mb-4 fade-in-up">
             Solution
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">솔루션 구조</h2>
-          <p className="mt-2 text-base text-muted-foreground fade-in-up stagger-2">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground fade-in-up stagger-1">솔루션 구조</h2>
+          <p className="mt-3 text-lg text-muted-foreground fade-in-up stagger-2">
             3계층 아키텍처로 '보안'과 '분석'과 '감사추적'을 동시에 달성
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-5 max-w-6xl mb-5">
+        <div className="grid grid-cols-3 gap-6 mb-6">
           {layers.map((layer, index) => (
             <div 
               key={index}
-              className={`p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+              className={`p-6 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${layer.color} shadow-lg`}>
-                  <layer.icon className="w-5 h-5 text-white" />
+              <div className="flex items-center gap-4 mb-4">
+                <div className={`p-4 rounded-xl bg-gradient-to-br ${layer.color} shadow-lg`}>
+                  <layer.icon className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <span className="text-xs text-muted-foreground">{layer.layer}</span>
-                  <h3 className="text-sm font-semibold text-foreground">{layer.title}</h3>
+                  <span className="text-sm text-muted-foreground">{layer.layer}</span>
+                  <h3 className="text-base font-semibold text-foreground">{layer.title}</h3>
                 </div>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {layer.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start gap-2 text-xs text-muted-foreground">
+                  <li key={itemIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <span className="text-primary mt-0.5">•</span>
                     <span>{item}</span>
                   </li>
@@ -78,9 +78,9 @@ export function SlideSolutionOverview() {
         </div>
 
         {/* Bottom banner */}
-        <div className="p-4 rounded-xl hero-gradient max-w-6xl fade-in-up stagger-6">
+        <div className="p-5 rounded-xl hero-gradient fade-in-up stagger-6">
           <div className="flex items-center justify-center gap-3">
-            <span className="text-white text-sm font-medium">
+            <span className="text-white text-base font-medium">
               "툴을 추가하는 게 아니라, 보안 데이터 → 증거 → 대응 의사결정 체계를 구축합니다."
             </span>
           </div>

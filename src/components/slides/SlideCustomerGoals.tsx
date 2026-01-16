@@ -36,30 +36,30 @@ export function SlideCustomerGoals() {
   return (
     <SlideLayout slideNumber={2} totalSlides={9} category="Executive Summary">
       <div className="flex flex-col justify-center h-full">
-        <div className="mb-6">
-          <span className="inline-flex gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-semibold shadow-md mb-3 fade-in-up">
+        <div className="mb-8">
+          <span className="inline-flex gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-base font-semibold shadow-md mb-4 fade-in-up">
             Customer Objectives
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground fade-in-up stagger-1">주요 해결 과제 및 목표</h2>
-          <p className="mt-2 text-lg text-primary font-semibold fade-in-up stagger-2">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground fade-in-up stagger-1">주요 해결 과제 및 목표</h2>
+          <p className="mt-3 text-xl text-primary font-semibold fade-in-up stagger-2">
             보안 데이터를 '리스크 감소'와 '감사 대응력'으로 전환합니다
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 max-w-6xl">
+        <div className="grid grid-cols-2 gap-6">
           {objectives.map((item, index) => (
             <div 
               key={index} 
-              className={`group p-5 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
+              className={`group p-6 rounded-xl bg-card shadow-card fade-in-up stagger-${index + 3}`}
             >
-              <div className="flex items-start gap-4">
-                <div className={`p-3 rounded-xl bg-gradient-to-br ${item.color} shadow-lg shrink-0`}>
-                  <item.icon className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-5">
+                <div className={`p-4 rounded-xl bg-gradient-to-br ${item.color} shadow-lg shrink-0`}>
+                  <item.icon className="w-7 h-7 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-base font-semibold text-foreground mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                  <p className="text-xs text-muted-foreground/80 mt-1">{item.detail}</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">{item.description}</p>
+                  <p className="text-sm text-muted-foreground/80 mt-2">{item.detail}</p>
                 </div>
               </div>
             </div>
